@@ -1,0 +1,12 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Factory extends Model
+{
+    use HasFactory;
+    protected $fillable = ['oil_file', 'petrol_file', 'all_file', 'title'];
+}
