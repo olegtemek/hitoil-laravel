@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->string('image');
             $table->string('description')->nullable();
-            $table->boolean('type');
+            $table->string('stars');
             $table->timestamps();
         });
     }

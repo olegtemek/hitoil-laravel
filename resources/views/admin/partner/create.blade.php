@@ -2,14 +2,14 @@
 
 
 @section('title')
-Добавить бензин
+Добавить партнера
 @endsection
 
 @section('content')
 
 
 <div class="card-body">
-  <form method="POST" action="{{ route('admin.petrol.store') }}">
+  <form method="POST" action="{{ route('admin.partner.store') }}">
     @csrf
     <div class="cart-body">
       <div class="row">
@@ -23,59 +23,41 @@
               <input type="text" value="{{ old('title') }}" class="form-control" name="title" placeholder="Заголовок">
             </div>
           </div>
-
           <div class="col-sm-6">
             <div class="form-group">
-              <label>Цена</label>
-              @error('price')
+              <label>Описание</label>
+              @error('description')
               <span class="error text-danger">{{ $message }}</span>
               @enderror
-              <input type="text" value="{{ old('price') }}" class="form-control" name="price" placeholder="Цена">
+              <input type="text" value="{{ old('description') }}" class="form-control" name="description" placeholder="Описание">
             </div>
           </div>
-
           <div class="col-sm-6">
             <div class="form-group">
-              <label>Кол-во</label>
-              @error('volume')
+              <label>Ссылка на партнера</label>
+              @error('link')
               <span class="error text-danger">{{ $message }}</span>
               @enderror
-              <input type="text" value="{{ old('volume') }}" class="form-control" name="volume" placeholder="Кол-во">
+              <input type="text" value="{{ old('link') }}" class="form-control" name="link" placeholder="Ссылка на партнера">
             </div>
           </div>
-
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label>Выбрать завод</label>
-              @error('factory_id')
-              <span class="error text-danger">{{ $message }}</span>
-              @enderror
-
-              <select name="factory_id" class="form-control" id="">
-                
-                @foreach ($factories as $factory)
-                <option value="{{$factory->id}}">{{$factory->title}}</option>
-                @endforeach
-              </select>
-              
-            </div>
-          </div>
+          
+          
 
           <div class="col-sm-4">
             <div class="form-group">
-              @error('passport')
+              @error('image')
                 <span class="error text-danger">{{ $message }}</span>
               @enderror
               <div class="row col-sm-12 input-group">
-                <label style="display: block; width:100%">Фото паспорта</label>
-                <input type="text" class="form-control" id="passport" name="passport" value="{{ old('passport') }}">
+                <label style="display: block; width:100%">Фотография</label>
+                <input type="text" class="form-control" id="image" name="image" value="{{ old('image') }}">
                 <div class="input-group-prepend">
-                  <a href="" class="popup_selector btn btn-success" data-inputid="passport"><i class="fas fa-file"></i></a>
+                  <a href="" class="popup_selector btn btn-success" data-inputid="image"><i class="fas fa-file"></i></a>
                 </div>
               </div>
             </div>
           </div>
-          
 
 
 
@@ -87,7 +69,7 @@
 
     <div class="row col-sm-12 mt-2">      
       <div class="col-sm-12">
-        <button class="btn btn-success" type="submit">Добавить бензин</button>
+        <button class="btn btn-success" type="submit">Добавить партнера</button>
       </div>    
     </div>
   </form>

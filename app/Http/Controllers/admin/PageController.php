@@ -3,11 +3,9 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\SaleRequest;
-use App\Models\Sale;
 use Illuminate\Http\Request;
 
-class SaleController extends Controller
+class PageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,7 @@ class SaleController extends Controller
      */
     public function index()
     {
-        $sales = Sale::orderBy('id', 'desc')->get();
-        return view('admin.sale.index', compact('sales'));
+        //
     }
 
     /**
@@ -27,7 +24,7 @@ class SaleController extends Controller
      */
     public function create()
     {
-        return view('admin.sale.create');
+        //
     }
 
     /**
@@ -36,16 +33,9 @@ class SaleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SaleRequest $request)
+    public function store(Request $request)
     {
-        Sale::create([
-            'title' => $request->title,
-            'image' => $request->image,
-            'description' => $request->description,
-            'mini_description' => $request->mini_description,
-            'mini_image' => $request->mini_image,
-        ]);
-        return redirect()->route('admin.sale.index')->with('message', 'Акция была добавлена');
+        //
     }
 
     /**
@@ -67,8 +57,7 @@ class SaleController extends Controller
      */
     public function edit($id)
     {
-        $sale = Sale::find($id);
-        return view('admin.sale.edit', compact('sale'));
+        //
     }
 
     /**
@@ -80,14 +69,7 @@ class SaleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Sale::find($id)->update([
-            'title' => $request->title,
-            'image' => $request->image,
-            'description' => $request->description,
-            'mini_description' => $request->mini_description,
-            'mini_image' => $request->mini_image,
-        ]);
-        return redirect()->route('admin.sale.index')->with('message', 'Акция была изменена');
+        //
     }
 
     /**
@@ -98,7 +80,6 @@ class SaleController extends Controller
      */
     public function destroy($id)
     {
-        Sale::destroy($id);
-        return redirect()->route('admin.sale.index')->with('message', 'Акция была удалена');
+        //
     }
 }

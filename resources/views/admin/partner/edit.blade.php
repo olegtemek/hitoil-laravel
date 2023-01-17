@@ -2,14 +2,14 @@
 
 
 @section('title')
-Редактировать отзыв
+Редактировать партнера
 @endsection
 
 @section('content')
 
 
 <div class="card-body">
-  <form method="POST" action="{{ route('admin.review.update', $review->id) }}">
+  <form method="POST" action="{{ route('admin.partner.update', $partner->id) }}">
     @csrf
     @method("PUT")
     <div class="cart-body">
@@ -21,7 +21,7 @@
               @error('title')
               <span class="error text-danger">{{ $message }}</span>
               @enderror
-              <input type="text" value="{{ $review->title }}" class="form-control" name="title" placeholder="Заголовок">
+              <input type="text" value="{{ $partner->title }}" class="form-control" name="title" placeholder="Заголовок">
             </div>
           </div>
           <div class="col-sm-6">
@@ -30,27 +30,21 @@
               @error('description')
               <span class="error text-danger">{{ $message }}</span>
               @enderror
-              <input type="text" value="{{ $review->description }}" class="form-control" name="description" placeholder="Описание">
+              <input type="text" value="{{ $partner->description }}" class="form-control" name="description" placeholder="Описание">
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label>Ссылка на партнера</label>
+              @error('link')
+              <span class="error text-danger">{{ $message }}</span>
+              @enderror
+              <input type="text" value="{{ $partner->link }}" class="form-control" name="link" placeholder="Ссылка на партнера">
             </div>
           </div>
           
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label>Количество звезд</label>
-              @error('stars')
-              <span class="error text-danger">{{ $message }}</span>
-              @enderror
-              <select name="stars" class="form-control">
-                @for ($i = 1; $i <= 5; $i++)
-                <option 
-                @if ($i == $review->stars)
-                  selected
-                @endif 
-                value="{{$i}}">{{$i}}</option>
-                @endfor
-              </select>
-            </div>
-          </div>
+          
 
           <div class="col-sm-4">
             <div class="form-group">
@@ -59,15 +53,13 @@
               @enderror
               <div class="row col-sm-12 input-group">
                 <label style="display: block; width:100%">Фотография</label>
-                <input type="text" class="form-control" id="image" name="image" value="{{ $review->image }}">
+                <input type="text" class="form-control" id="image" name="image" value="{{ $partner->image }}">
                 <div class="input-group-prepend">
                   <a href="" class="popup_selector btn btn-success" data-inputid="image"><i class="fas fa-file"></i></a>
                 </div>
               </div>
             </div>
           </div>
-
-          
 
 
 
@@ -79,7 +71,7 @@
 
     <div class="row col-sm-12 mt-2">      
       <div class="col-sm-12">
-        <button class="btn btn-success" type="submit">Редактировать отзыв</button>
+        <button class="btn btn-success" type="submit">Редактировать партнера</button>
       </div>    
     </div>
   </form>

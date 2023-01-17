@@ -26,15 +26,27 @@
           </a>
         </li>
         <li class="nav-item  mt-4"">
-          <a href="{{route('admin.oil.index')}}" class="nav-link {{(request()->is('admin/oil*')) ? 'active' : ''}}">
-            <i class="fas fa-cogs nav-icon"></i>
-            <p>Масла</p>
-          </a>
-        </li>
-        <li class="nav-item  mt-4"">
           <a href="{{route('admin.sale.index')}}" class="nav-link {{(request()->is('admin/sale*')) ? 'active' : ''}}">
             <i class="fas fa-cogs nav-icon"></i>
             <p>Акции</p>
+          </a>
+        </li>
+        <li class="nav-item  mt-4"">
+          <a href="{{route('admin.contact.index')}}" class="nav-link {{(request()->is('admin/contact*')) ? 'active' : ''}}">
+            <i class="fas fa-cogs nav-icon"></i>
+            <p>Контакты</p>
+          </a>
+        </li>
+        <li class="nav-item  mt-4"">
+          <a href="{{route('admin.team.index')}}" class="nav-link {{(request()->is('admin/team*')) ? 'active' : ''}}">
+            <i class="fas fa-cogs nav-icon"></i>
+            <p>Команда</p>
+          </a>
+        </li>
+        <li class="nav-item  mt-4"">
+          <a href="{{route('admin.partner.index')}}" class="nav-link {{(request()->is('admin/partner*')) ? 'active' : ''}}">
+            <i class="fas fa-cogs nav-icon"></i>
+            <p>Партнеры</p>
           </a>
         </li>
 

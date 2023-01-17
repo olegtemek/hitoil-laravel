@@ -2,12 +2,15 @@
 
 use App\Http\Controllers\admin\AuthController;
 use App\Http\Controllers\admin\CertificateController;
+use App\Http\Controllers\admin\ContactController;
 use App\Http\Controllers\admin\FactoryController;
 use App\Http\Controllers\admin\IndexController;
-use App\Http\Controllers\admin\OilController;
+
+use App\Http\Controllers\admin\PartnerController;
 use App\Http\Controllers\admin\PetrolController;
 use App\Http\Controllers\admin\ReviewController;
 use App\Http\Controllers\admin\SaleController;
+use App\Http\Controllers\admin\TeamController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,11 +31,12 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function () {
     Route::get('/', [IndexController::class, 'index'])->name('home.index');
     Route::resource('/factory', FactoryController::class);
-    Route::resource('/petrol', PetrolController::class);
-    Route::resource('/oil', OilController::class);
     Route::resource('/sale', SaleController::class);
     Route::resource('/review', ReviewController::class);
     Route::resource('/certificate', CertificateController::class);
+    Route::resource('/contact', ContactController::class);
+    Route::resource('/partner', PartnerController::class);
+    Route::resource('/team', TeamController::class);
 });
 
 Route::get('/admin/auth', [AuthController::class, 'index'])->name('login');

@@ -2,48 +2,34 @@
 
 
 @section('title')
-Добавить отзыв
+Добавить сотрудника
 @endsection
 
 @section('content')
 
 
 <div class="card-body">
-  <form method="POST" action="{{ route('admin.review.store') }}">
+  <form method="POST" action="{{ route('admin.team.store') }}">
     @csrf
     <div class="cart-body">
       <div class="row">
         <div class="col-sm-12 row mb-4">
           <div class="col-sm-6">
             <div class="form-group">
-              <label>Заголовок</label>
-              @error('title')
+              <label>Фио</label>
+              @error('name')
               <span class="error text-danger">{{ $message }}</span>
               @enderror
-              <input type="text" value="{{ old('title') }}" class="form-control" name="title" placeholder="Заголовок">
+              <input type="text" value="{{ old('name') }}" class="form-control" name="name" placeholder="Фио">
             </div>
           </div>
           <div class="col-sm-6">
             <div class="form-group">
-              <label>Описание</label>
-              @error('description')
+              <label>Должность</label>
+              @error('pos')
               <span class="error text-danger">{{ $message }}</span>
               @enderror
-              <input type="text" value="{{ old('description') }}" class="form-control" name="description" placeholder="Описание">
-            </div>
-          </div>
-
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label>Количество звезд</label>
-              @error('stars')
-              <span class="error text-danger">{{ $message }}</span>
-              @enderror
-              <select name="stars" class="form-control">
-                @for ($i = 1; $i <= 5; $i++)
-                <option value="{{$i}}">{{$i}}</option>
-                @endfor
-              </select>
+              <input type="text" value="{{ old('pos') }}" class="form-control" name="pos" placeholder="Должность">
             </div>
           </div>
           
@@ -74,7 +60,7 @@
 
     <div class="row col-sm-12 mt-2">      
       <div class="col-sm-12">
-        <button class="btn btn-success" type="submit">Добавить отзыв</button>
+        <button class="btn btn-success" type="submit">Добавить сотрудника</button>
       </div>    
     </div>
   </form>

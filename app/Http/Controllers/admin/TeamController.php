@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\SaleRequest;
-use App\Models\Sale;
+use App\Http\Requests\TeamRequest;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
-class SaleController extends Controller
+class TeamController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class SaleController extends Controller
      */
     public function index()
     {
-        $sales = Sale::orderBy('id', 'desc')->get();
-        return view('admin.sale.index', compact('sales'));
+        $teams = Team::all();
+        return view('admin.team.index', compact('teams'));
     }
 
     /**
@@ -27,7 +27,7 @@ class SaleController extends Controller
      */
     public function create()
     {
-        return view('admin.sale.create');
+        return view('admin.team.create');
     }
 
     /**
@@ -36,16 +36,14 @@ class SaleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SaleRequest $request)
+    public function store(TeamRequest $request)
     {
-        Sale::create([
-            'title' => $request->title,
+        Team::create([
+            'name' => $request->name,
+            'pos' => $request->pos,
             'image' => $request->image,
-            'description' => $request->description,
-            'mini_description' => $request->mini_description,
-            'mini_image' => $request->mini_image,
         ]);
-        return redirect()->route('admin.sale.index')->with('message', 'Акция была добавлена');
+        return redirect()->route('admin.team.index')->with('message', 'Сотрудник был успешно добавлен');
     }
 
     /**
@@ -67,8 +65,8 @@ class SaleController extends Controller
      */
     public function edit($id)
     {
-        $sale = Sale::find($id);
-        return view('admin.sale.edit', compact('sale'));
+        $team = Team::find($id);
+        return view('admin.team.edit', compact('team'));
     }
 
     /**
@@ -78,16 +76,14 @@ class SaleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TeamRequest $request, $id)
     {
-        Sale::find($id)->update([
-            'title' => $request->title,
+        Team::find($id)->update([
+            'name' => $request->name,
+            'pos' => $request->pos,
             'image' => $request->image,
-            'description' => $request->description,
-            'mini_description' => $request->mini_description,
-            'mini_image' => $request->mini_image,
         ]);
-        return redirect()->route('admin.sale.index')->with('message', 'Акция была изменена');
+        return redirect()->route('admin.team.index')->with('message', 'Сотрудник был успешно изменен');
     }
 
     /**
@@ -98,7 +94,7 @@ class SaleController extends Controller
      */
     public function destroy($id)
     {
-        Sale::destroy($id);
-        return redirect()->route('admin.sale.index')->with('message', 'Акция была удалена');
+        Team::destroy($id);
+        return redirect()->route('admin.team.index')->with('message', 'Сотрудник был успешно удален');
     }
 }

@@ -37,28 +37,14 @@ class ReviewController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ReviewRequest $request)
     {
-        $type = null;
-        if (!empty($request->title) || !empty($request->description)) {
-            $data = $request->validate([
-                'title' => 'required',
-                'image' => 'required',
-                'description' => 'required'
-            ]);
-            $type = true;
-        } else {
-            $data = $request->validate([
-                'image' => 'required'
-            ]);
-            $type = false;
-        }
 
         Review::create([
             'title' => $request->title,
             'description' => $request->description,
             'image' => $request->image,
-            'type' => $type
+            'stars' => $request->stars
         ]);
 
         return redirect()->route('admin.review.index')->with('message', 'Отзыв был успешно добавлен');
@@ -94,29 +80,15 @@ class ReviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ReviewRequest $request, $id)
     {
 
-        $type = null;
-        if (!empty($request->title) && !empty($request->description)) {
-            $data = $request->validate([
-                'title' => 'required',
-                'image' => 'required',
-                'description' => 'required'
-            ]);
-            $type = true;
-        } else {
-            $data = $request->validate([
-                'image' => 'required'
-            ]);
-            $type = false;
-        }
 
         Review::find($id)->update([
             'title' => $request->title,
             'description' => $request->description,
             'image' => $request->image,
-            'type' => $type
+            'stars' => $request->stars,
         ]);
 
         return redirect()->route('admin.review.index')->with('message', 'Отзыв был успешно изменен');

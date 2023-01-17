@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('oil', function (Blueprint $table) {
+        Schema::create('teams', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('price');
-            $table->string('volume');
-            $table->string('passport');
-            $table->foreignId('factory_id')->references('id')->on('factories')->onDelete('cascade');
+            $table->string('name');
+            $table->string('pos');
             $table->string('image');
             $table->timestamps();
         });
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('oil');
+        Schema::dropIfExists('teams');
     }
 };

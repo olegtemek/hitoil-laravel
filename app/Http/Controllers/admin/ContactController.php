@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\SaleRequest;
-use App\Models\Sale;
+use App\Http\Requests\ContactRequest;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
-class SaleController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class SaleController extends Controller
      */
     public function index()
     {
-        $sales = Sale::orderBy('id', 'desc')->get();
-        return view('admin.sale.index', compact('sales'));
+        $contacts = Contact::find(1);
+        return view('admin.contacts.index', compact('contacts'));
     }
 
     /**
@@ -27,7 +27,7 @@ class SaleController extends Controller
      */
     public function create()
     {
-        return view('admin.sale.create');
+        //
     }
 
     /**
@@ -36,16 +36,9 @@ class SaleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SaleRequest $request)
+    public function store(Request $request)
     {
-        Sale::create([
-            'title' => $request->title,
-            'image' => $request->image,
-            'description' => $request->description,
-            'mini_description' => $request->mini_description,
-            'mini_image' => $request->mini_image,
-        ]);
-        return redirect()->route('admin.sale.index')->with('message', 'Акция была добавлена');
+        //
     }
 
     /**
@@ -67,8 +60,7 @@ class SaleController extends Controller
      */
     public function edit($id)
     {
-        $sale = Sale::find($id);
-        return view('admin.sale.edit', compact('sale'));
+        //
     }
 
     /**
@@ -78,16 +70,17 @@ class SaleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ContactRequest $request, $id)
     {
-        Sale::find($id)->update([
-            'title' => $request->title,
-            'image' => $request->image,
-            'description' => $request->description,
-            'mini_description' => $request->mini_description,
-            'mini_image' => $request->mini_image,
+        Contact::find(1)->update([
+            'time' => $request->time,
+            'email' => $request->email,
+            'address' => $request->address,
+            'number' => $request->number,
+            'number_whatsapp' => $request->number_whatsapp,
         ]);
-        return redirect()->route('admin.sale.index')->with('message', 'Акция была изменена');
+
+        return redirect()->route('admin.contact.index')->with('message', 'Контакты были успешно сохранены');
     }
 
     /**
@@ -98,7 +91,6 @@ class SaleController extends Controller
      */
     public function destroy($id)
     {
-        Sale::destroy($id);
-        return redirect()->route('admin.sale.index')->with('message', 'Акция была удалена');
+        //
     }
 }

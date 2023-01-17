@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\OilRequest;
-use App\Models\Factory;
-use App\Models\Oil;
+use App\Http\Requests\PartnerRequest;
+use App\Models\Partner;
 use Illuminate\Http\Request;
 
-class OilController extends Controller
+class PartnerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,8 @@ class OilController extends Controller
      */
     public function index()
     {
-        $oils = Oil::with('factory')->orderBy('id', 'desc')->get();
-        return view('admin.oil.index', compact('oils'));
+        $partners = Partner::orderBy('id', 'desc')->get();
+        return view('admin.partner.index', compact('partners'));
     }
 
     /**
@@ -28,8 +27,7 @@ class OilController extends Controller
      */
     public function create()
     {
-        $factories = Factory::all();
-        return view('admin.oil.create', compact('factories'));
+        return view('admin.partner.create');
     }
 
     /**
@@ -38,17 +36,15 @@ class OilController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(OilRequest $request)
+    public function store(PartnerRequest $request)
     {
-        Oil::create([
+        Partner::create([
             'title' => $request->title,
-            'price' => $request->price,
-            'volume' => $request->volume,
-            'factory_id' => $request->factory_id,
+            'description' => $request->description,
             'image' => $request->image,
-            'passport' => $request->passport,
+            'link' => $request->link,
         ]);
-        return redirect()->route('admin.oil.index')->with('message', 'Масло было успешно добавлено');
+        return redirect()->route('admin.partner.index')->with('message', 'Партнер был успешно добавлен');
     }
 
     /**
@@ -70,9 +66,8 @@ class OilController extends Controller
      */
     public function edit($id)
     {
-        $oil = Oil::find($id);
-        $factories = Factory::all();
-        return view('admin.oil.edit', compact('oil', 'factories'));
+        $partner = Partner::find($id);
+        return view('admin.partner.edit', compact('partner'));
     }
 
     /**
@@ -82,17 +77,15 @@ class OilController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(OilRequest $request, $id)
+    public function update(PartnerRequest $request, $id)
     {
-        Oil::find($id)->update([
+        Partner::find($id)->update([
             'title' => $request->title,
-            'price' => $request->price,
-            'volume' => $request->volume,
-            'factory_id' => $request->factory_id,
+            'description' => $request->description,
             'image' => $request->image,
-            'passport' => $request->passport,
+            'link' => $request->link,
         ]);
-        return redirect()->route('admin.oil.index')->with('message', 'Масло было успешно изменено');
+        return redirect()->route('admin.partner.index')->with('message', 'Партнер был успешно изменен');
     }
 
     /**
@@ -103,7 +96,7 @@ class OilController extends Controller
      */
     public function destroy($id)
     {
-        Oil::destroy($id);
-        return redirect()->route('admin.oil.index')->with('message', 'Масло было успешно удаленно');
+        Partner::destroy($id);
+        return redirect()->route('admin.partner.index')->with('message', 'Партнер был успешно удален');
     }
 }

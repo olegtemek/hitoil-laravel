@@ -2,7 +2,7 @@
 
 
 @section('title')
-Все масло
+Все партнеры
 @endsection
 
 @section('content')
@@ -11,35 +11,32 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-12 mb-4">
-        <a href="{{route('admin.oil.create') }}" class="btn btn-success">Добавить масло</a>
+        <a href="{{route('admin.partner.create') }}" class="btn btn-success">Добавить партнера</a>
       </div>
       <div class="card col-sm-12" style="min-height:100%;">
         <div class="card-header">
-        <h3 class="card-title">Все масло</h3>
+        <h3 class="card-title">Все заводы</h3>
         </div>
         <div class="card-body p-0">
           <table class="table table-striped">
             <thead>
               <tr>
                 <th>Название</th>
-                <th>Цена</th>
-                <th>Кол-во</th>
-                <th>Фотография</th>
+                <th>Oписание</th>
+                <th>Изображение</th>
                 <th>Удалить/Изменить</th>
               </tr>
             </thead>
           <tbody>
-            @foreach ($oils as $oil)
+            @foreach ($partners as $partner)
             <tr>
               
-              <td>{{$oil->title}}</td>
-              <td>{{$oil->price}}</td>
-              <td>{{$oil->volume}}</td>
-              <td><img src="/{{$oil->image}}" style="max-width: 150px" alt=""></td>
-              <td>{{$oil->factory->title}}</td>
+              <td>{{$partner->title}}</td>
+              <td>{{$partner->description}}</td>
+              <td><img src="/{{$partner->image}}" style="max-width:150px" alt=""></td>
               <td>
-                <a href="{{route('admin.oil.edit', $oil->id)}}" class="btn btn-primary">Изменить</a>
-                <form style="display:inline" action="{{route('admin.oil.destroy', $oil->id)}}" method="post">
+                <a href="{{route('admin.partner.edit', $partner->id)}}" class="btn btn-primary">Изменить</a>
+                <form style="display:inline" action="{{route('admin.partner.destroy', $partner->id)}}" method="post">
                 @method('DELETE')
                 @csrf
                 <button class="btn btn-danger" type="submit">Удалить</button>

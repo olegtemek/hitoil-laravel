@@ -27,11 +27,11 @@
 
           <div class="col-sm-6">
             <div class="form-group">
-              <label>Описание</label>
-              @error('description')
+              <label>Краткое описание</label>
+              @error('mini_description')
               <span class="error text-danger">{{ $message }}</span>
               @enderror
-              <input type="text" value="{{ $sale->description }}" class="form-control" name="description" placeholder="Описание">
+              <input type="text" value="{{ $sale->mini_description }}" class="form-control" name="mini_description" placeholder="Краткое описание">
             </div>
           </div>
 
@@ -64,6 +64,17 @@
                   <a href="" class="popup_selector btn btn-success" data-inputid="mini_image"><i class="fas fa-file"></i></a>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12">
+            <div class="form-group">
+              <label>Описание</label>
+              @error('description')
+              <span class="error text-danger">{{ $message }}</span>
+              @enderror
+              
+              <textarea name="description" style="min-height: 200px" class="form-control">{{ $sale->description }}</textarea>
             </div>
           </div>
 

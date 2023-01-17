@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PetrolRequest extends FormRequest
+class PartnerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,10 +25,9 @@ class PetrolRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'volume' => 'required',
-            'price' => 'required',
-            'passport' => 'required',
-            'factory_id' => 'required',
+            'link' => 'required',
+            'image' => 'required',
+            'description' => 'required',
         ];
     }
 }

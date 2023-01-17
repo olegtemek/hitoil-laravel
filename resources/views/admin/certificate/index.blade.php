@@ -22,7 +22,7 @@
             <thead>
               <tr>
                 <th>Название</th>
-                <th>Описание</th>
+                <th>Краткое описание</th>
                 <th>Изображение</th>
                 <th>Удалить/Изменить</th>
               </tr>
@@ -32,7 +32,7 @@
             <tr>
               
               <td>{{$certificate->title}}</td>
-              <td>{{$certificate->description}}</td>
+              <td>{{$certificate->mini_description}}</td>
               <td><img src="/{{$certificate->image}}" style="max-width:150px" alt=""></td>
               <td>
                 <a href="{{route('admin.certificate.edit', $certificate->id)}}" class="btn btn-primary">Изменить</a>
