@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Factory extends Model
 {
     use HasFactory;
-    protected $fillable = ['oil_file', 'petrol_file', 'all_file', 'title'];
+    protected $fillable = ['title'];
 }

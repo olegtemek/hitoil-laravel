@@ -24,50 +24,7 @@
             </div>
           </div>
           <div class="col-sm-6"></div>
-          <div class="col-sm-4">
-            <div class="form-group">
-              @error('oil_file')
-                <span class="error text-danger">{{ $message }}</span>
-              @enderror
-              <div class="row col-sm-12 input-group">
-                <label style="display: block; width:100%">Каталог масел для этого завода</label>
-                <input type="text" class="form-control" id="oil_file" name="oil_file" value="{{ old('oil_file') }}">
-                <div class="input-group-prepend">
-                  <a href="" class="popup_selector btn btn-success" data-inputid="oil_file"><i class="fas fa-file"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-4">
-            <div class="form-group">
-              @error('petrol_file')
-                <span class="error text-danger">{{ $message }}</span>
-              @enderror
-              <div class="row col-sm-12 input-group">
-                <label style="display: block; width:100%">Каталог бензина для этого завода</label>
-                <input type="text" class="form-control" id="petrol_file" name="petrol_file" value="{{ old('petrol_file') }}">
-                <div class="input-group-prepend">
-                  <a href="" class="popup_selector btn btn-success" data-inputid="petrol_file"><i class="fas fa-file"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-4">
-            <div class="form-group">
-              @error('all_file')
-                <span class="error text-danger">{{ $message }}</span>
-              @enderror
-              <div class="row col-sm-12 input-group">
-                <label style="display: block; width:100%">Каталог всех продуктов для этого завода</label>
-                <input type="text" class="form-control" id="all_file" name="all_file" value="{{ old('all_file') }}">
-                <div class="input-group-prepend">
-                  <a href="" class="popup_selector btn btn-success" data-inputid="all_file"><i class="fas fa-file"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
+         
 
 
 

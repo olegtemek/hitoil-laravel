@@ -21,9 +21,9 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>Название</th>
-                <th>Описание</th>
-                <th>Изображение</th>
+                <th>Задача</th>
+                <th>Результат</th>
+                
                 <th>Удалить/Изменить</th>
               </tr>
             </thead>
@@ -31,9 +31,8 @@
             @foreach ($reviews as $review)
             <tr>
               
-              <td>{{$review->title}}</td>
-              <td>{{$review->description}}</td>
-              <td><img src="/{{$review->image}}" style="max-width:150px" alt=""></td>
+              <td>{{$review->task}}</td>
+              <td>{{$review->result}}</td>
               <td>
                 <a href="{{route('admin.review.edit', $review->id)}}" class="btn btn-primary">Изменить</a>
                 <form style="display:inline" action="{{route('admin.review.destroy', $review->id)}}" method="post">

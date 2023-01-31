@@ -24,10 +24,11 @@ class ReviewRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'description' => 'required',
-            'stars' => 'required',
-            'image' => 'required'
+            'task' => 'required',
+            'result' => 'required',
+            'image' => 'required',
+            'image_full' => 'required',
+
         ];
     }
 }

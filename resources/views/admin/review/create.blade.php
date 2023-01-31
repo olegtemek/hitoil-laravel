@@ -16,38 +16,22 @@
         <div class="col-sm-12 row mb-4">
           <div class="col-sm-6">
             <div class="form-group">
-              <label>Заголовок</label>
-              @error('title')
+              <label>Задача</label>
+              @error('task')
               <span class="error text-danger">{{ $message }}</span>
               @enderror
-              <input type="text" value="{{ old('title') }}" class="form-control" name="title" placeholder="Заголовок">
+              <input type="text" value="{{ old('task') }}" class="form-control" name="task" placeholder="Задача">
             </div>
           </div>
           <div class="col-sm-6">
             <div class="form-group">
-              <label>Описание</label>
-              @error('description')
+              <label>Результат</label>
+              @error('result')
               <span class="error text-danger">{{ $message }}</span>
               @enderror
-              <input type="text" value="{{ old('description') }}" class="form-control" name="description" placeholder="Описание">
+              <input type="text" value="{{ old('result') }}" class="form-control" name="result" placeholder="Результат">
             </div>
           </div>
-
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label>Количество звезд</label>
-              @error('stars')
-              <span class="error text-danger">{{ $message }}</span>
-              @enderror
-              <select name="stars" class="form-control">
-                @for ($i = 1; $i <= 5; $i++)
-                <option value="{{$i}}">{{$i}}</option>
-                @endfor
-              </select>
-            </div>
-          </div>
-          
-          
 
           <div class="col-sm-4">
             <div class="form-group">
@@ -63,6 +47,24 @@
               </div>
             </div>
           </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              @error('image_full')
+                <span class="error text-danger">{{ $message }}</span>
+              @enderror
+              <div class="row col-sm-12 input-group">
+                <label style="display: block; width:100%">Фотография отзыва(при нажатии показать отзыв)</label>
+                <input type="text" class="form-control" id="image_full" name="image_full" value="{{ old('image_full') }}">
+                <div class="input-group-prepend">
+                  <a href="" class="popup_selector btn btn-success" data-inputid="image_full"><i class="fas fa-file"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+
+         
 
 
 

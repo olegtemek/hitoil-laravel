@@ -39,10 +39,7 @@ class FactoryController extends Controller
     public function store(FactoryRequest $request)
     {
         Factory::create([
-            'title' => $request->title,
-            'oil_file' => $request->oil_file,
-            'petrol_file' => $request->petrol_file,
-            'all_file' => $request->all_file
+            'title' => $request->title
         ]);
         return redirect()->route('admin.factory.index')->with('message', 'Завод был успешно добавлен');
     }
@@ -80,10 +77,7 @@ class FactoryController extends Controller
     public function update(Request $request, $id)
     {
         Factory::find($id)->update([
-            'title' => $request->title,
-            'oil_file' => $request->oil_file,
-            'petrol_file' => $request->petrol_file,
-            'all_file' => $request->all_file
+            'title' => $request->title
         ]);
         return redirect()->route('admin.factory.index')->with('message', 'Завод был успешно изменен');
     }

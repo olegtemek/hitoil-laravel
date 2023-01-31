@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
+            $table->string('task')->nullable();
+            $table->string('result')->nullable();
             $table->string('image');
-            $table->string('description')->nullable();
-            $table->string('stars');
+            $table->string('image_full');
             $table->timestamps();
         });
     }

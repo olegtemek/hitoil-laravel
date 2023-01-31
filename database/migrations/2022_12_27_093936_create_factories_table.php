@@ -16,9 +16,6 @@ return new class extends Migration
         Schema::create('factories', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('oil_file');
-            $table->string('petrol_file');
-            $table->string('all_file');
             $table->timestamps();
         });
     }

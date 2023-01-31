@@ -17,9 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->string('seo_title')->nullable();
-            $table->string('seo_description')->nullable();
-            $table->string('seo_text')->nullable();
+            $table->string('image');
+            $table->string('slug');
+            $table->longText('seo_title')->nullable();
+            $table->longText('seo_description')->nullable();
+            $table->longText('seo_text')->nullable();
+            $table->longText('seo_ld')->nullable();
             $table->timestamps();
         });
     }

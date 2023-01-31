@@ -39,13 +39,15 @@ class ReviewController extends Controller
      */
     public function store(ReviewRequest $request)
     {
-
         Review::create([
-            'title' => $request->title,
-            'description' => $request->description,
+            'task' => $request->task,
+            'result' => $request->result,
             'image' => $request->image,
-            'stars' => $request->stars
+            'image_full' => $request->image_full
         ]);
+
+
+
 
         return redirect()->route('admin.review.index')->with('message', 'Отзыв был успешно добавлен');
     }
@@ -84,11 +86,11 @@ class ReviewController extends Controller
     {
 
 
-        Review::find($id)->update([
-            'title' => $request->title,
-            'description' => $request->description,
+        Review::find($id)->Update([
+            'task' => $request->task,
+            'result' => $request->result,
             'image' => $request->image,
-            'stars' => $request->stars,
+            'image_full' => $request->image_full
         ]);
 
         return redirect()->route('admin.review.index')->with('message', 'Отзыв был успешно изменен');
