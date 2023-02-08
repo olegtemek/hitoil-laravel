@@ -18,6 +18,7 @@
           <table class="table table-striped">
             <thead>
               <tr>
+                <th>Id</th>
                 <th>Название</th>
                 <th>Удалить/Изменить</th>
               </tr>
@@ -25,7 +26,7 @@
           <tbody>
             @foreach ($pages as $page)
             <tr>
-              
+              <td>{{$page->id}}</td>
               <td>{{$page->title}}</td>
               <td>
                 <a href="{{route('admin.page.edit', $page->id)}}" class="btn btn-primary">Изменить</a>

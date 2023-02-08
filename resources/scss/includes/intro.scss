@@ -1,0 +1,22 @@
+.intro {
+  height: 610px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  @media (max-width:1440px) {
+    height: 560px;
+  }
+
+  @media (max-width:1366px) {
+    height: 500px;
+  }
+
+  @media (max-width:1112px) {
+    height: 450px;
+  }
+
+  @media (max-width:920px) {
+    height: 300px;
+  }
+}
