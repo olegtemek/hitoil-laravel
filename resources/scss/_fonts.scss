@@ -5,11 +5,13 @@
     font-weight: $weight;
     font-style: $style;
     font-display: swap;
+    -moz-font-weight: $weight;
+    -moz-font-family: quote($font-name);
   }
 }
 
 @include font-face('Montserrat', '@fonts/Montserrat-Bold', $fw-bold , 'normal');
-@include font-face('Montserrat', '@fonts/Montserrat-ExtraBold', $fw-extraBold , 'normal');
 @include font-face('Montserrat', '@fonts/Montserrat-Medium', $fw-medium , 'normal');
 @include font-face('Montserrat', '@fonts/Montserrat-Regular', $fw-regular , 'normal');
 @include font-face('Montserrat', '@fonts/Montserrat-SemiBold', $fw-semiBold , 'normal');
+@include font-face('Montserrats', '@fonts/Montserrat-ExtraBold', $fw-extraBold, 'normal');

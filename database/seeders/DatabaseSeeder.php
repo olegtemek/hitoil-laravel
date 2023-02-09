@@ -6,9 +6,12 @@ namespace Database\Seeders;
 
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Certificate;
 use App\Models\Contact;
 use App\Models\Page;
+use App\Models\Partner;
 use App\Models\Product;
+use App\Models\Review;
 use App\Models\Type;
 use App\Models\Viscosity;
 use App\Models\Volume;
@@ -46,5 +49,10 @@ class DatabaseSeeder extends Seeder
         Viscosity::factory(4)->create();
         Type::factory(4)->create();
         Product::factory(100)->create();
+
+        Partner::factory(5)->create();
+
+        Certificate::factory(5)->create();
+        Review::factory(5)->create();
     }
 }

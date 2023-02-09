@@ -17,7 +17,9 @@ class CertificateFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => 'Победитель в номинации
+            “Поставщик года"',
+            'image' => 'images/certificates/cert1.png'
         ];
     }
 }
