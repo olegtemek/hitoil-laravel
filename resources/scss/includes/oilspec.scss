@@ -1,0 +1,94 @@
+.oilSpec {
+  margin-top: 120px;
+
+  @media (max-width:1366px) {
+    margin-top: 80px;
+  }
+
+  @media (max-width:920px) {
+    margin-top: 60px;
+  }
+
+  @media (max-width:540px) {
+    margin-top: 20px;
+  }
+
+
+  &__wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    @media (max-width:1112px) {
+      align-items: center;
+    }
+
+    @media (max-width:920px) {
+      flex-direction: column;
+    }
+  }
+
+  &__left {
+    width: 560px;
+    height: 490px;
+    margin-right: 80px;
+
+    @media (max-width:1366px) {
+      width: 610px;
+      height: 424px;
+      margin-right: 40px;
+    }
+
+    @media (max-width:1112px) {
+      width: 420px;
+      height: 300px;
+    }
+
+    @media (max-width:920px) {
+      display: none;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__right {
+    max-width: 660px;
+
+    @media (max-width:700px) {
+      max-width: 100%;
+    }
+
+    .title {
+      max-width: 100%;
+      padding-bottom: 20px;
+      line-height: 40px;
+
+      @media (max-width:700px) {
+        line-height: 30px;
+      }
+    }
+
+    p {
+      padding-bottom: 70px;
+      line-height: 28px;
+
+      @media (max-width:700px) {
+        padding-bottom: 40px;
+      }
+    }
+
+    a,
+    button {
+      @media (max-width:560px) {
+        width: 240px;
+        padding: 10px 20px;
+        display: block;
+        text-align: center;
+      }
+    }
+  }
+}

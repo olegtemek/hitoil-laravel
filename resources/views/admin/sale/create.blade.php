@@ -39,7 +39,7 @@
 
           <div class="col-sm-4">
             <div class="form-group">
-              @error('mini_image')
+              @error('mini')
                 <span class="error text-danger">{{ $message }}</span>
               @enderror
               <div class="row col-sm-12 input-group">
@@ -52,7 +52,7 @@
             </div>
           </div>
 
-          <div class="col-sm-4">
+          {{-- <div class="col-sm-4">
             <div class="form-group">
               @error('mini_image')
                 <span class="error text-danger">{{ $message }}</span>
@@ -65,7 +65,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> --}}
 
           <div class="col-sm-12">
             <div class="form-group">

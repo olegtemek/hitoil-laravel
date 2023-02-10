@@ -26,9 +26,7 @@ class SaleRequest extends FormRequest
         return [
             'title' => 'required',
             'description' => 'required',
-            'image' => 'required',
-            'mini_image' => 'required',
-            'mini_description' => 'required'
+            'image' => 'required'
         ];
     }
 }
