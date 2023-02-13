@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Certificate;
+use App\Models\Factory;
 use App\Models\Page;
 use App\Models\Partner;
+use App\Models\Petrol;
 use App\Models\Review;
 use Illuminate\Http\Request;
 
@@ -17,6 +19,10 @@ class HomeController extends Controller
         $data['partners'] = Partner::orderBy('id', 'DESC')->get();
         $data['certificates'] = Certificate::orderBy('id', 'DESC')->get();
         $data['reviews'] = Review::orderBy('id', 'DESC')->get();
+
+        $data['factories'] = Factory::all();
+
+        $data['petrols'] = Petrol::where('factory_id', $data['factories'][0]->id)->where('type', false)->get();
         return view('home.index', compact('data'));
     }
 
@@ -27,5 +33,16 @@ class HomeController extends Controller
         $data['page'] = Page::where('slug', $slug)->first();
 
         dd($data['page']->slug . ' slug');
+    }
+
+    public function getOil(Request $req)
+    {
+        $petrols = Petrol::where('factory_id', $req->oil['factoryId'])->where('type', $req->oil['type'])->get();
+        $html = '';
+        foreach ($petrols as $item) {
+            $html .= view('components.petrol-row', ['item' => $item]);
+        }
+
+        return $html;
     }
 }

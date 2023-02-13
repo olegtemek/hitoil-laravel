@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\FilterController;
 use App\Http\Controllers\admin\IndexController;
 use App\Http\Controllers\admin\PageController;
 use App\Http\Controllers\admin\PartnerController;
+use App\Http\Controllers\admin\PetrolController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\ReviewController;
 use App\Http\Controllers\admin\SaleController;
@@ -50,6 +51,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     Route::put('/filter/{type}/{id}', [FilterController::class, 'update'])->name('filter.update');
     Route::delete('/filter/delete/{type}/{id}', [FilterController::class, 'destroy'])->name('filter.destroy');
     Route::resource('/product', ProductController::class);
+
+    Route::resource('/petrol', PetrolController::class);
 });
 
 Route::get('/admin/auth', [AuthController::class, 'index'])->name('login');
@@ -61,4 +64,5 @@ Route::group(['as' => 'front.'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home.index');
     Route::get('/{slug}', [HomeController::class, 'page'])->name('home.page');
     Route::get('/oil/{slug}', [CatalogController::class, 'index'])->name('catalog.index');
+    Route::post('/get-oil', [HomeController::class, 'getOil'])->name('home.get');
 });

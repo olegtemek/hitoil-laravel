@@ -1,0 +1,256 @@
+.form {
+  background-image: url('@assets/form-bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 140px;
+  margin-top: -70px;
+
+  @media (max-width:1366px) {
+    padding-top: 120px;
+  }
+
+
+  &__wrapper {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  &__left {
+    width: 630px;
+    height: 616px;
+
+    @media (max-width:1366px) {
+      width: 430px;
+      height: 416px;
+    }
+
+    @media (max-width:1112px) {
+      width: 380px;
+      height: 386px;
+    }
+
+    @media (max-width:920px) {
+      display: none;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__right {
+    padding-bottom: 180px;
+    color: $white;
+    width: 560px;
+
+    @media (max-width:1366px) {
+      padding-bottom: 40px;
+    }
+
+    @media (max-width:1112px) {
+      width: 460px;
+    }
+
+    @media (max-width:920px) {
+      width: 100%;
+    }
+
+    h2 {
+      padding-bottom: 40px;
+    }
+
+    >p {
+      padding-left: 34px;
+      position: relative;
+      margin-bottom: 32px;
+      font-size: 18px;
+
+      @media (max-width:640px) {
+        font-size: 14px;
+        padding-left: 28px;
+      }
+
+      &:last-child {
+        margin-bottom: 52px;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background-image: url('@assets/accept.png');
+        background-size: cover;
+        background-position: center;
+        width: 27px;
+        height: 27px;
+
+        @media (max-width:640px) {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+    }
+
+    &-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+
+      @media (max-width:640px) {
+        justify-content: flex-start;
+      }
+
+      @media (max-width:490px) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      &:last-child {
+        margin-top: 30px;
+
+        @media (max-width:920px) {
+          justify-content: flex-start;
+        }
+
+        @media (max-width:640px) {
+          flex-direction: column-reverse;
+          align-items: flex-start;
+        }
+      }
+
+      input {
+        background-color: $white;
+        padding: 14px 24px;
+        color: $black;
+        width: 260px;
+        box-sizing: border-box;
+
+        @media (max-width:1112px) {
+          width: 220px;
+        }
+
+        @media (max-width:920px) {
+          width: 290px;
+        }
+
+        @media (max-width:640px) {
+          width: 220px;
+          margin-right: 20px;
+        }
+
+        @media (max-width:490px) {
+          margin-right: 0;
+          margin-bottom: 20px;
+          width: 90%;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+
+        &::placeholder {
+          color: $black;
+        }
+      }
+
+      button {
+        padding: 20px 40px;
+        background-color: $red;
+        color: $white;
+        transition: $tr;
+        text-transform: uppercase;
+        font-weight: $fw-bold;
+
+        @media (max-width:1112px) {
+          padding: 14px 20px;
+          margin-right: 20px;
+        }
+
+        @media (max-width:640px) {
+          margin-right: 0;
+          margin-top: 20px;
+        }
+
+        &:hover {
+          background-color: darken($red, 10);
+        }
+      }
+
+
+
+
+      .form-group {
+        display: block;
+
+        input {
+          padding: 0;
+          height: initial;
+          width: initial;
+          margin-bottom: 0;
+          display: none;
+          cursor: pointer;
+        }
+
+        label {
+          position: relative;
+          cursor: pointer;
+          font-size: 14px;
+
+          @media (max-width:490px) {
+            font-size: 12px;
+          }
+        }
+      }
+
+      .form-group label:before {
+        content: '';
+        -webkit-appearance: none;
+        background-color: transparent;
+        border: 2px solid $red;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+        padding: 10px;
+        border-radius: 50%;
+        display: inline-block;
+        position: relative;
+        vertical-align: middle;
+        cursor: pointer;
+        margin-right: 10px;
+
+        @media (max-width:490px) {
+          margin-right: 4px;
+        }
+      }
+
+      .form-group input:checked+label:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 2px;
+        left: 9px;
+        width: 6px;
+        height: 11px;
+        border: solid $white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+
+        @media (max-width:490px) {
+          top: 0px;
+
+        }
+      }
+
+      .form-group input:checked+label:before {
+        background-color: $red;
+      }
+    }
+  }
+}

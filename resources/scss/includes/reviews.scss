@@ -1,5 +1,15 @@
 .reviews {
   margin-top: 100px;
+  position: relative;
+  z-index: 2;
+
+  @media (max-width:920px) {
+    margin-top: 60px;
+  }
+
+  @media (max-width:700px) {
+    margin-top: 20px;
+  }
 
   &__wrapper {
     padding: 90px 40px;
@@ -8,6 +18,7 @@
     justify-content: center;
     flex-direction: column;
     box-shadow: 0px 0px 16px 10px rgba(0, 0, 0, 0.2);
+    background: $white;
 
     @media (max-width:920px) {
       padding: 20px 0;

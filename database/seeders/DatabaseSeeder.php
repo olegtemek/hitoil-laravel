@@ -8,8 +8,10 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Certificate;
 use App\Models\Contact;
+use App\Models\Factory;
 use App\Models\Page;
 use App\Models\Partner;
+use App\Models\Petrol;
 use App\Models\Product;
 use App\Models\Review;
 use App\Models\Type;
@@ -49,10 +51,12 @@ class DatabaseSeeder extends Seeder
         Viscosity::factory(4)->create();
         Type::factory(4)->create();
         Product::factory(100)->create();
-
+        Factory::factory(5)->create();
         Partner::factory(5)->create();
 
         Certificate::factory(5)->create();
         Review::factory(5)->create();
+
+        Petrol::factory(50)->create();
     }
 }
