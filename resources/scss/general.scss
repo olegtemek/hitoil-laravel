@@ -75,6 +75,41 @@ body {
 
 
 
+.breadcrums {
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    a {
+      font-size: 12px;
+      padding-right: 10px;
+      margin-right: 6px;
+      position: relative;
+
+      &::after {
+        content: '/';
+        font-size: 12px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &:last-child {
+        margin-right: 0;
+        padding-right: 0;
+        opacity: 0.6;
+
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+}
 
 
 

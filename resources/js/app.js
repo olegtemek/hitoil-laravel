@@ -114,30 +114,34 @@ const reviewsSlider = new Swiper('.reviews__slider', {
 
 
 
+if (document.getElementById('select_type')) {
 
-const selectType = customSelect('#select_type')[0];
-const selectFactory = customSelect('#select_factory')[0]
+  console.log('test');
+  const selectType = customSelect('#select_type')[0];
+  const selectFactory = customSelect('#select_factory')[0]
+
+  selectType.select.addEventListener('change', getOil);
+
+  selectFactory.select.addEventListener('change', getOil);
+
+  async function getOil() {
+    let oil = {
+      type: selectType.value,
+      factoryId: selectFactory.value
+    }
+
+    let res = await axios.post('/get-oil', {
+      oil: oil
+    })
+
+    document.querySelector('.petrol__table-row-inner').innerHTML = res.data
 
 
-selectType.select.addEventListener('change', getOil);
-
-selectFactory.select.addEventListener('change', getOil);
-
-
-async function getOil() {
-  let oil = {
-    type: selectType.value,
-    factoryId: selectFactory.value
   }
-
-  let res = await axios.post('/get-oil', {
-    oil: oil
-  })
-
-  document.querySelector('.petrol__table-row-inner').innerHTML = res.data
-
-
 }
+
+
+
 
 
 const modalsBtn = document.querySelectorAll('.modal-btn')
@@ -213,24 +217,26 @@ btnModal.addEventListener('click', function () {
 
 const btnForm = document.querySelector('.send-form')
 
-btnForm.addEventListener('click', function () {
-  let parent = this.parentNode.parentNode
-  let inputs = parent.querySelectorAll('input')
-  let name = inputs[0].value
-  let number = inputs[1].value
-  let agree = inputs[2].checked
+if (btnForm) {
+  btnForm.addEventListener('click', function () {
+    let parent = this.parentNode.parentNode
+    let inputs = parent.querySelectorAll('input')
+    let name = inputs[0].value
+    let number = inputs[1].value
+    let agree = inputs[2].checked
 
 
-  let result = validate(name, number, agree)
-  if (result) {
-    sendData({
-      name: name,
-      number: number
-    })
-    inputs[0].value = null
-    inputs[1].value = null
-  }
-})
+    let result = validate(name, number, agree)
+    if (result) {
+      sendData({
+        name: name,
+        number: number
+      })
+      inputs[0].value = null
+      inputs[1].value = null
+    }
+  })
+}
 
 
 

@@ -25,6 +25,7 @@ class HomeController extends Controller
         $data['factories'] = Factory::all();
 
         $data['petrols'] = Petrol::where('factory_id', $data['factories'][0]->id)->where('type', false)->get();
+
         return view('home.index', compact('data'));
     }
 
@@ -33,8 +34,13 @@ class HomeController extends Controller
         $data = [];
 
         $data['page'] = Page::where('slug', $slug)->first();
+        if ($data['page']->id == 1) {
+            return redirect('/');
+        }
 
-        dd($data['page']->slug . ' slug');
+        if ($data['page']->id == 2) {
+            return view('delivery.index', compact('data'));
+        }
     }
 
     public function getOil(Request $req)

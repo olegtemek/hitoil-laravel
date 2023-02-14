@@ -18,6 +18,7 @@ use App\Models\Type;
 use App\Models\Viscosity;
 use App\Models\Volume;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
@@ -43,7 +44,23 @@ class DatabaseSeeder extends Seeder
             'email' => 'email',
         ]);
 
-        Page::factory(6)->create();
+        $pages = [
+            [
+                'title' => 'Ваш надежный поставщик топлива и нефтепродуктов',
+                'description' => '',
+                'image' => 'images/pages/intro1.jpg',
+                'slug' => 'main',
+            ],
+            [
+                'title' => 'Условия доставки',
+                'description' => '',
+                'image' => 'images/pages/intro1.jpg',
+                'slug' => 'delivery',
+            ],
+        ];
+
+        DB::table('pages')->insert($pages);
+
         Category::factory(3)->create();
 
         Brand::factory(4)->create();
@@ -57,6 +74,6 @@ class DatabaseSeeder extends Seeder
         Certificate::factory(5)->create();
         Review::factory(5)->create();
 
-        Petrol::factory(50)->create();
+        Petrol::factory(120)->create();
     }
 }

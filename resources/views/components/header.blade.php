@@ -3,7 +3,7 @@
     <div class="header__wrapper">
       <div class="header__left">
         <div class="header__logo">
-          <a href="/" data-fancybox>
+          <a href="/">
             <img src="{{ Vite::asset('resources/assets/logo.png') }}" alt="{{env('APP_NAME')}}">
           </a>
         </div>

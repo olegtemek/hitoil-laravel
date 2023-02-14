@@ -15,7 +15,7 @@
 
     <div class="footer__top-column">
       <h3>Доставка</h3>
-      <a href="#">Условия доставки</a>
+      <a href="{{route('front.page', 'delivery')}}">Условия доставки</a>
     </div>
 
     <div class="footer__top-column">
