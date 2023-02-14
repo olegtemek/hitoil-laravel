@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendMail;
 use App\Models\Certificate;
 use App\Models\Factory;
 use App\Models\Page;
@@ -9,6 +10,7 @@ use App\Models\Partner;
 use App\Models\Petrol;
 use App\Models\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail as FacadesMail;
 
 class HomeController extends Controller
 {
@@ -44,5 +46,20 @@ class HomeController extends Controller
         }
 
         return $html;
+    }
+
+    public function form(Request $req)
+    {
+
+        $mailData = [
+            'name' => $req->name,
+            'number' => $req->number
+        ];
+
+
+        FacadesMail::to(env('ADMIN_EMAIL'))->send(new SendMail($mailData));
+
+
+        return true;
     }
 }

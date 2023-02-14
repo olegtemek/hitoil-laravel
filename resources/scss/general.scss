@@ -32,6 +32,42 @@ body {
 
 
 
+.alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: $green;
+  padding: 20px;
+  color: $white;
+  border-radius: $br;
+  font-weight: $fw-bold;
+  display: none;
+  z-index: 999999;
+
+  &.error {
+    background-color: $red;
+  }
+
+
+  &.active {
+    display: block;
+    animation: anim $tr;
+  }
+
+
+  @keyframes anim {
+    0% {
+      transform: translateY(-150%);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
+}
+
+
+
 
 
 
@@ -47,7 +83,6 @@ body {
   font-size: 38px;
   max-width: 480px;
   font-weight: $fw-extraBold;
-  font-family: 'Montserrats';
 
   @media (max-width:1366px) {
     font-size: 30px;
@@ -71,7 +106,6 @@ body {
 
 .ex-bold {
   font-weight: $fw-extraBold;
-  font-family: 'Montserrats';
 }
 
 .b-btn {

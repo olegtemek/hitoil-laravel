@@ -8,6 +8,7 @@
           </a>
         </div>
         <ul class="header__nav">
+          <span>&#9587;</span>
           <li>
             <a class="active" href="#">ГСМ</a>
           </li>
@@ -38,7 +39,7 @@
           </svg>
         </a>
 
-        <button class="b-btn">
+        <button class="b-btn modal-btn">
           Оставить заявку
         </button>
       </div>

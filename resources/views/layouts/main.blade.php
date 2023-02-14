@@ -21,6 +21,11 @@
   
   @include('components.svg')
   @include('components.footer')
+  @include('components.modal')
+
+  <div class="alert">
+    Lorem, ipsum.
+  </div>
 
 </body>
 </html>

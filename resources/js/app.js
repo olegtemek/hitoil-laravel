@@ -138,3 +138,108 @@ async function getOil() {
 
 
 }
+
+
+const modalsBtn = document.querySelectorAll('.modal-btn')
+const modal = document.querySelector('.modal')
+modalsBtn.forEach(btn => {
+  btn.addEventListener('click', () => {
+    modal.classList.add('active')
+
+    document.addEventListener('click', (event) => {
+      if (event.target.classList[1] == 'active' || event.target.tagName == 'SPAN') {
+        modal.classList.remove('active')
+      }
+    })
+  })
+
+});
+
+
+let alertTimer = null
+function initAlert(text, bool) {
+  clearTimeout(alertTimer)
+  alertTimer = null
+  document.querySelector('.alert').classList.add('active')
+  document.querySelector('.alert').innerHTML = text
+  if (!bool) {
+    document.querySelector('.alert').classList.add('error')
+  } else {
+    document.querySelector('.alert').classList.remove('error')
+  }
+
+  alertTimer = setTimeout(() => {
+    document.querySelector('.alert').classList.remove('active')
+  }, 2000);
+}
+
+
+
+function validate(name, number, agree = true) {
+  if (!name) {
+    return initAlert('Поле "Имя" обязательное поле', false)
+  }
+  if (!number) {
+    return initAlert('Поле "Телефон" обязательное поле', false)
+  }
+  if (!agree) {
+    return initAlert('Необходимо согласие на обработку информации', false)
+  }
+
+  return true
+}
+
+const btnModal = document.querySelector('.send-modal')
+
+btnModal.addEventListener('click', function () {
+  let parent = this.parentNode
+
+  let inputs = parent.querySelectorAll('input')
+  let name = inputs[0].value
+  let number = inputs[1].value
+
+  let result = validate(name, number)
+  if (result) {
+    sendData({
+      name: name,
+      number: number
+    })
+    inputs[0].value = null
+    inputs[1].value = null
+    modal.classList.remove('active')
+  }
+})
+
+
+const btnForm = document.querySelector('.send-form')
+
+btnForm.addEventListener('click', function () {
+  let parent = this.parentNode.parentNode
+  let inputs = parent.querySelectorAll('input')
+  let name = inputs[0].value
+  let number = inputs[1].value
+  let agree = inputs[2].checked
+
+
+  let result = validate(name, number, agree)
+  if (result) {
+    sendData({
+      name: name,
+      number: number
+    })
+    inputs[0].value = null
+    inputs[1].value = null
+  }
+})
+
+
+
+async function sendData(data) {
+  try {
+    let res = await axios.post('/send-form', { name: data.name, number: data.number })
+
+    initAlert('Спасибо за заявку, мы свяжемся в ближайшее время', true)
+  } catch (e) {
+    return initAlert('Ошибка 500, попробуйте позже')
+  }
+}

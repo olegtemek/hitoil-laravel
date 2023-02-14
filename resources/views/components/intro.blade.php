@@ -3,7 +3,7 @@
     <div class="intro__wrapper">
       <div class="intro__block">
         <h1 class="ex-bold">{{$intro->title}}</h1>
-      <button class="btn">Связаться 
+      <button class="btn modal-btn">Связаться 
         <svg class="icon">
           <use xlink:href="#arrow-single"></use>
         </svg>

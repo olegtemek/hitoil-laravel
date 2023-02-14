@@ -65,4 +65,5 @@ Route::group(['as' => 'front.'], function () {
     Route::get('/{slug}', [HomeController::class, 'page'])->name('home.page');
     Route::get('/oil/{slug}', [CatalogController::class, 'index'])->name('catalog.index');
     Route::post('/get-oil', [HomeController::class, 'getOil'])->name('home.get');
+    Route::post('/send-form', [HomeController::class, 'form'])->name('home.form');
 });

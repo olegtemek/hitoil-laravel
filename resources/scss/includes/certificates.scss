@@ -33,6 +33,7 @@
     width: 500px;
     position: relative;
     margin-right: 120px;
+    z-index: 4;
 
     @media (max-width:1366px) {
       margin-right: 60px;

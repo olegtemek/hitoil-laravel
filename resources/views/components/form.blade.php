@@ -21,7 +21,7 @@
           <input type="text" placeholder="Телефон" class="number-input">
         </div>
         <div class="form__right-row">
-          <button>Отправить</button>
+          <button class="send-form">Отправить</button>
 
           <div class="form-group">
             <input type="checkbox" id="checkbox" checked>

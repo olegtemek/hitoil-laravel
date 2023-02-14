@@ -14,4 +14,6 @@
 @include font-face('Montserrat', '@fonts/Montserrat-Medium', $fw-medium , 'normal');
 @include font-face('Montserrat', '@fonts/Montserrat-Regular', $fw-regular , 'normal');
 @include font-face('Montserrat', '@fonts/Montserrat-SemiBold', $fw-semiBold , 'normal');
-@include font-face('Montserrats', '@fonts/Montserrat-ExtraBold', $fw-extraBold, 'normal');
+@include font-face('Montserrat', '@fonts/Montserrat-ExtraBold', $fw-extraBold, 'normal');
+
+// @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
