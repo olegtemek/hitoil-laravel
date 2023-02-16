@@ -9,6 +9,7 @@ use App\Models\Page;
 use App\Models\Partner;
 use App\Models\Petrol;
 use App\Models\Review;
+use App\Models\Sale;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail as FacadesMail;
 
@@ -40,6 +41,14 @@ class HomeController extends Controller
 
         if ($data['page']->id == 2) {
             return view('delivery.index', compact('data'));
+        }
+
+        if ($data['page']->id == 3) {
+            $data['sales'] = Sale::orderBy('id', 'DESC')->get();
+            return view('sale.index', compact('data'));
+        }
+        if ($data['page']->id == 4) {
+            return view('contact.index', compact('data'));
         }
     }
 

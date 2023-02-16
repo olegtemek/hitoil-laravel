@@ -13,6 +13,7 @@ use App\Http\Controllers\admin\PetrolController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\ReviewController;
 use App\Http\Controllers\admin\SaleController;
+use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\TeamController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\HomeController;
@@ -43,6 +44,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     Route::resource('/partner', PartnerController::class);
     Route::resource('/team', TeamController::class);
     Route::resource('/page', PageController::class);
+    Route::resource('/setting', SettingController::class);
     Route::resource('/category', CategoryController::class);
     Route::get('/filter/{type}', [FilterController::class, 'index'])->name('filter.index');
     Route::get('/filter/create/{type}', [FilterController::class, 'create'])->name('filter.create');
@@ -66,4 +68,5 @@ Route::group(['as' => 'front.'], function () {
     Route::get('/oil/{slug}', [CatalogController::class, 'index'])->name('catalog.index');
     Route::post('/get-oil', [HomeController::class, 'getOil'])->name('home.get');
     Route::post('/send-form', [HomeController::class, 'form'])->name('home.form');
+    Route::get('/sale', [HomeController::class, 'page'])->name('sale.index');
 });

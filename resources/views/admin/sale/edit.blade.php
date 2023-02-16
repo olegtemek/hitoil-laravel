@@ -25,21 +25,13 @@
             </div>
           </div>
 
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label>Краткое описание</label>
-              @error('mini_description')
-              <span class="error text-danger">{{ $message }}</span>
-              @enderror
-              <input type="text" value="{{ $sale->mini_description }}" class="form-control" name="mini_description" placeholder="Краткое описание">
-            </div>
-          </div>
+
 
 
 
           <div class="col-sm-4">
             <div class="form-group">
-              @error('mini')
+              @error('image')
                 <span class="error text-danger">{{ $message }}</span>
               @enderror
               <div class="row col-sm-12 input-group">

@@ -42,8 +42,7 @@ class SaleController extends Controller
             'title' => $request->title,
             'image' => $request->image,
             'description' => $request->description,
-            'mini_description' => $request->mini_description,
-            'mini_image' => $request->mini_image,
+            'mini_description' => $request->mini_description
         ]);
         return redirect()->route('admin.sale.index')->with('message', 'Акция была добавлена');
     }
@@ -78,14 +77,13 @@ class SaleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SaleRequest $request, $id)
     {
         Sale::find($id)->update([
             'title' => $request->title,
             'image' => $request->image,
             'description' => $request->description,
-            'mini_description' => $request->mini_description,
-            'mini_image' => $request->mini_image,
+            'mini_description' => $request->mini_description
         ]);
         return redirect()->route('admin.sale.index')->with('message', 'Акция была изменена');
     }

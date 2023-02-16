@@ -39,7 +39,8 @@ class FactoryController extends Controller
     public function store(FactoryRequest $request)
     {
         Factory::create([
-            'title' => $request->title
+            'title' => $request->title,
+            'map' => $request->map
         ]);
         return redirect()->route('admin.factory.index')->with('message', 'Завод был успешно добавлен');
     }
@@ -74,10 +75,11 @@ class FactoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(FactoryRequest $request, $id)
     {
         Factory::find($id)->update([
-            'title' => $request->title
+            'title' => $request->title,
+            'map' => $request->map
         ]);
         return redirect()->route('admin.factory.index')->with('message', 'Завод был успешно изменен');
     }

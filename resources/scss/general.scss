@@ -76,6 +76,11 @@ body {
 
 
 .breadcrums {
+  margin-bottom: 80px;
+
+  @media (max-width:920px) {
+    margin-bottom: 40px;
+  }
 
   &__wrapper {
     display: flex;

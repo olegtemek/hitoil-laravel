@@ -249,3 +249,13 @@ async function sendData(data) {
     return initAlert('Ошибка 500, попробуйте позже')
   }
 }
+
+
+
+let headerNavs = document.querySelectorAll('.header__nav>li>a');
+
+headerNavs.forEach(link => {
+  if (link.href == window.location.href) {
+    link.classList.add('active')
+  }
+});

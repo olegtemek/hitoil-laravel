@@ -10,7 +10,7 @@
         <ul class="header__nav">
           <span>&#9587;</span>
           <li>
-            <a class="active" href="#">ГСМ</a>
+            <a href="/">ГСМ</a>
           </li>
           <li>
             <a href="#">Масла</a>
@@ -19,21 +19,21 @@
             <a href="#">О нас</a>
           </li>
           <li>
-            <a href="#">Акции</a>
+            <a href="{{route('front.page', 'sale')}}">Акции</a>
           </li>
           <li>
             <a href="#">Расчет доставки</a>
           </li>
           <li>
-            <a href="#">Контакты</a>
+            <a href="{{route('front.page', 'contacts')}}">Контакты</a>
           </li>
         </ul>
       </div>
       <div class="header__right">
-        <a href="#" class="header__right-number">
-          +7 777 544 37 75
+        <a href="tel:{{$global_data['settings']->number}}" class="header__right-number">
+          {{$global_data['settings']->number}}
         </a>
-        <a href="#" class="header__right-whatsapp">
+        <a href="https://wa.me/{{str_replace(' ','', $global_data['settings']->number_whatsapp)}}?text=Здравствуйте" target="_blank" class="header__right-whatsapp">
           <svg class="icon">
             <use xlink:href="#whatsapp"></use>
           </svg>

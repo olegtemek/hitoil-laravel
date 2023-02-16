@@ -20,9 +20,9 @@
 
     <div class="footer__top-column">
       <h3>Контакты</h3>
-      <a href="#" class="number">+7 777 758 49 55</a>
-      <a href="#" class="number">+7 777 758 49 55</a>
-      <a href="#">E-mail: <span>info@hit.kz</span></a>
+      <a href="tel:{{$global_data['settings']->number}}" class="number">{{$global_data['settings']->number}}</a>
+      <a href="https://wa.me/{{str_replace(' ','', $global_data['settings']->number_whatsapp)}}?text=Здравствуйте" target="_blank" class="number">{{$global_data['settings']->number_whatsapp}}</a>
+      <a href="mailto:{{$global_data['settings']->email}}">E-mail: <span>{{$global_data['settings']->email}}</span></a>
     </div>
 
     <div class="footer__top-map">

@@ -23,7 +23,15 @@
               <input type="text" value="{{ old('title') }}" class="form-control" name="title" placeholder="Заголовок">
             </div>
           </div>
-          <div class="col-sm-6"></div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label>iframe карт</label>
+              @error('map')
+              <span class="error text-danger">{{ $message }}</span>
+              @enderror
+              <input type="text" value="{{ old('map') }}" class="form-control" name="map" placeholder="Заголовок">
+            </div>
+          </div>
          
 
 

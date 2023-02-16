@@ -81,8 +81,7 @@ class PageController extends Controller
             'seo_title' => $request->seo_title,
             'seo_description' => $request->seo_description,
             'seo_text' => $request->seo_text,
-            'seo_ld' => $request->seo_ld,
-            'slug' => Str::slug($request->title)
+            'seo_ld' => $request->seo_ld
         ]);
         return redirect()->route('admin.page.index')->with('message', 'Страница была изменена');
     }

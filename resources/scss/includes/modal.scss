@@ -33,6 +33,20 @@
     opacity: 0.4;
   }
 
+  .modal__sale {
+    text-align: center;
+
+    h3 {
+      font-size: 20px;
+      padding-bottom: 10px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 30px;
+    }
+  }
+
   &__wrapper {
     position: relative;
     z-index: 999;

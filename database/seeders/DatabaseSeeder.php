@@ -14,6 +14,8 @@ use App\Models\Partner;
 use App\Models\Petrol;
 use App\Models\Product;
 use App\Models\Review;
+use App\Models\Sale;
+use App\Models\Setting;
 use App\Models\Type;
 use App\Models\Viscosity;
 use App\Models\Volume;
@@ -57,6 +59,18 @@ class DatabaseSeeder extends Seeder
                 'image' => 'images/pages/intro1.jpg',
                 'slug' => 'delivery',
             ],
+            [
+                'title' => 'Акции и Специальные предложения',
+                'description' => '',
+                'image' => 'images/pages/intro1.jpg',
+                'slug' => 'sale',
+            ],
+            [
+                'title' => 'Где мы находимся',
+                'description' => '',
+                'image' => 'images/pages/intro1.jpg',
+                'slug' => 'contacts',
+            ],
         ];
 
         DB::table('pages')->insert($pages);
@@ -70,10 +84,12 @@ class DatabaseSeeder extends Seeder
         Product::factory(100)->create();
         Factory::factory(5)->create();
         Partner::factory(5)->create();
-
+        Sale::factory(3)->create();
         Certificate::factory(5)->create();
         Review::factory(5)->create();
 
         Petrol::factory(120)->create();
+
+        Setting::factory(1)->create();
     }
 }

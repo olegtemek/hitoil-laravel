@@ -32,6 +32,12 @@
           </a>
         </li>
         <li class="nav-item ">
+          <a href="{{route('admin.setting.index')}}" class="nav-link {{(request()->is('admin/setting*')) ? 'active' : ''}}">
+            <i class="fas fa-cogs nav-icon"></i>
+            <p>Настройки</p>
+          </a>
+        </li>
+        <li class="nav-item ">
           <a href="{{route('admin.team.index')}}" class="nav-link {{(request()->is('admin/team*')) ? 'active' : ''}}">
             <i class="fas fa-cogs nav-icon"></i>
             <p>Команда</p>

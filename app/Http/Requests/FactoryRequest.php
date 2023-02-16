@@ -25,9 +25,7 @@ class FactoryRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'oil_file' => 'required',
-            'petrol_file' => 'required',
-            'all_file' => 'required'
+            'map' => 'required'
         ];
     }
 }

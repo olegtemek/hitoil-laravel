@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\Controller;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
-class DeliveryController extends Controller
+class SettingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,8 @@ class DeliveryController extends Controller
      */
     public function index()
     {
-        return view('delivery.index');
+        $setting = Setting::find(1);
+        return view('admin.setting.index', compact('setting'));
     }
 
     /**
@@ -56,7 +59,6 @@ class DeliveryController extends Controller
      */
     public function edit($id)
     {
-        //
     }
 
     /**
@@ -68,7 +70,11 @@ class DeliveryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Setting::find($id)->update([
+            'number' => $request->number, 'number_whatsapp' => $request->number_whatsapp, 'instagram' => $request->instagram, 'facebook' => $request->facebook, 'email' => $request->email,
+        ]);
+
+        return redirect()->route('admin.setting.index')->with('message', 'Настройки были успешно сохранены');
     }
 
     /**
