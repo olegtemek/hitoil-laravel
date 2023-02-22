@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('image');
             $table->longText('seo_title')->nullable();
             $table->longText('seo_description')->nullable();
             $table->longText('seo_text')->nullable();

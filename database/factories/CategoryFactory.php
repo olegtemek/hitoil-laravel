@@ -20,6 +20,7 @@ class CategoryFactory extends Factory
         $title = fake()->text(20);
         return [
             'title' => $title,
+            'image' => 'images/category/category1.png',
             'slug' => Str::slug($title)
         ];
     }

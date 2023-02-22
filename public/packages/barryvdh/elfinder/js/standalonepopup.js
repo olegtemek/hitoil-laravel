@@ -1,4 +1,4 @@
-$(document).on('click','.popup_selector',function (event) {
+$(document).on('click', '.popup_selector', function (event) {
     event.preventDefault();
     var updateID = $(this).attr('data-inputid'); // Btn id clicked
     var elfinderUrl = '/elfinder/popup/';
@@ -17,4 +17,17 @@ $(document).on('click','.popup_selector',function (event) {
 // function to update the file selected by elfinder
 function processSelectedFile(filePath, requestingField) {
     $('#' + requestingField).val(filePath).trigger('change');
+
+    if (document.querySelector('.images')) {
+        let all = document.querySelectorAll('.images>div')
+        let array = [];
+        all.forEach(elem => {
+            let path = elem.querySelector('input').value
+
+            array.push(path)
+        });
+
+
+        document.getElementById('result_image').value = JSON.stringify(array)
+    }
 }

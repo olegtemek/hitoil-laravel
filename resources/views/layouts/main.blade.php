@@ -7,6 +7,7 @@
   <title>{{$data['page']->seo_title ?? ''}}</title>
   <meta name="description" content="{{$data['page']->seo_description ?? ''}}">
   @vite(['resources/scss/app.scss','resources/js/app.js'])
+  @yield('head')
 </head>
 <body>
   @include('components.header')
@@ -26,6 +27,8 @@
   <div class="alert">
     Lorem, ipsum.
   </div>
+
+  @yield('js')
 
 </body>
 </html>

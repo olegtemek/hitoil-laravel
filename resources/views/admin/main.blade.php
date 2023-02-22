@@ -91,7 +91,7 @@
 <script src="/plugins/jquery-mapael/jquery.mapael.min.js"></script>
 <script src="/plugins/jquery-mapael/maps/usa_states.min.js"></script>
 <script type="text/javascript" src="/dist/jquery.colorbox-min.js"></script>
-<script type="text/javascript" src="/packages/barryvdh/elfinder/js/standalonepopup.min.js"></script>
+<script type="text/javascript" src="/packages/barryvdh/elfinder/js/standalonepopup.js"></script>
 
 <script src="/dist/js/pages/dashboard2.js"></script>
 

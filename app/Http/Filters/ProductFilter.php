@@ -6,6 +6,8 @@ class ProductFilter extends QueryFilter
 {
   public function brand($data)
   {
+
+
     return $this->builder->whereHas('brand', function ($q) use ($data) {
       $q->whereIn('brand_id', $data);
     });
@@ -30,5 +32,14 @@ class ProductFilter extends QueryFilter
     return $this->builder->whereHas('type', function ($q) use ($data) {
       $q->whereIn('type_id', $data);
     });
+  }
+  public function last()
+  {
+    return $this->builder->orderBy('id', 'DESC');
+  }
+
+  public function popular()
+  {
+    return $this->builder->where('popular', true);
   }
 }

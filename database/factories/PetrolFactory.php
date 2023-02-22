@@ -21,7 +21,7 @@ class PetrolFactory extends Factory
             'price' => '2 000',
             'volume' => '20',
             'type' => fake()->boolean(),
-            'factory_id' => fake()->numberBetween(1, 5),
+            'factory_id' => fake()->numberBetween(1, 4),
             'image' => 'images/partners/bionord.png'
         ];
     }

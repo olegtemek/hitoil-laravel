@@ -71,11 +71,52 @@ class DatabaseSeeder extends Seeder
                 'image' => 'images/pages/intro1.jpg',
                 'slug' => 'contacts',
             ],
+            [
+                'title' => 'Расчет доставки',
+                'description' => '',
+                'image' => 'images/pages/intro1.jpg',
+                'slug' => 'cost',
+            ],
+            [
+                'title' => 'Масла и смазки оптом',
+                'description' => 'Широкий выбор масел различных марок и от различных брендов',
+                'image' => 'images/pages/intro2.jpg',
+                'slug' => 'oil',
+            ],
         ];
 
         DB::table('pages')->insert($pages);
 
-        Category::factory(3)->create();
+
+        $categories = [
+            [
+                'title' => 'Трансмиссионные масла',
+                'image' => 'images/category/category1.png',
+                'slug' => 'transmis-oil'
+            ],
+            [
+                'title' => 'Моторные масла',
+                'image' => 'images/category/category2.png',
+                'slug' => 'motor-oil'
+            ],
+            [
+                'title' => 'Гидравлические масла',
+                'image' => 'images/category/category3.png',
+                'slug' => 'gidr-oil'
+            ],
+            [
+                'title' => 'Трансформаторные масла',
+                'image' => 'images/category/category4.png',
+                'slug' => 'tansfor-oil'
+            ],
+            [
+                'title' => 'Компрессорные масла',
+                'image' => 'images/category/category5.png',
+                'slug' => 'compr-oil'
+            ],
+        ];
+
+        DB::table('categories')->insert($categories);
 
         Brand::factory(4)->create();
         Volume::factory(4)->create();

@@ -2,7 +2,7 @@
 
 
 @section('title')
-Все сертификаты
+Все топливо
 @endsection
 
 @section('content')

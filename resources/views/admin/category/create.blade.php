@@ -26,7 +26,20 @@
 
 
          
-
+          <div class="col-sm-4">
+            <div class="form-group">
+              @error('image')
+                <span class="error text-danger">{{ $message }}</span>
+              @enderror
+              <div class="row col-sm-12 input-group">
+                <label style="display: block; width:100%">Фотография</label>
+                <input type="text" class="form-control" id="image" name="image" value="{{ old('image') }}">
+                <div class="input-group-prepend">
+                  <a href="" class="popup_selector btn btn-success" data-inputid="image"><i class="fas fa-file"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
 
         </div>
 

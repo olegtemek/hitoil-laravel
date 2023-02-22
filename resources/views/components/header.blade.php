@@ -13,7 +13,7 @@
             <a href="/">ГСМ</a>
           </li>
           <li>
-            <a href="#">Масла</a>
+            <a href="{{route('front.page', 'oil')}}">Масла</a>
           </li>
           <li>
             <a href="#">О нас</a>
@@ -22,7 +22,7 @@
             <a href="{{route('front.page', 'sale')}}">Акции</a>
           </li>
           <li>
-            <a href="#">Расчет доставки</a>
+            <a href="{{route('front.page', 'cost')}}">Расчет доставки</a>
           </li>
           <li>
             <a href="{{route('front.page', 'contacts')}}">Контакты</a>

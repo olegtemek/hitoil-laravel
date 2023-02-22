@@ -12,6 +12,6 @@ class Petrol extends Model
 
     public function parent()
     {
-        return $this->belongsTo(Factory::class, 'id');
+        return $this->belongsTo(Factory::class, 'factory_id');
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\SendMail;
+use App\Models\Category;
 use App\Models\Certificate;
 use App\Models\Factory;
 use App\Models\Page;
@@ -50,6 +51,16 @@ class HomeController extends Controller
         if ($data['page']->id == 4) {
             return view('contact.index', compact('data'));
         }
+        if ($data['page']->id == 5) {
+            $data['factories'] = Factory::all();
+
+            return view('cost.index', compact('data'));
+        }
+
+        if ($data['page']->id == 6) {
+            $data['categories']  = Category::all();
+            return view('oil.index', compact('data'));
+        }
     }
 
     public function getOil(Request $req)
@@ -68,7 +79,11 @@ class HomeController extends Controller
 
         $mailData = [
             'name' => $req->name,
-            'number' => $req->number
+            'number' => $req->number,
+            'factory_title' => $req->factory_title,
+            'city_title' => $req->city_title,
+            'product_title' => $req->product_title,
+            'volume' => $req->volume,
         ];
 
 

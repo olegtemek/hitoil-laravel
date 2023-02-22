@@ -1,6 +1,11 @@
 <section class="form__analog">
   <div class="container">
-    <h2 class="title">Остались вопросы?<br>Заполните заявку</h2>
+    @if (isset($title))
+    <h2 class="title">{!! $title !!}</h2>
+    @else
+    <h2 class="title">Остались вопросы?<br>Заполните заявку</h2>    
+    @endif
+    
     <div class="form__analog__wrapper">
       <div class="form__analog__left">
         <p>

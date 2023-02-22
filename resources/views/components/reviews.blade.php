@@ -8,7 +8,7 @@
             @foreach ($reviews as $rev)
                <div class="swiper-slide">
                 <div class="swiper-slide-left">
-                  <img src="/{{$rev->image}}" alt="{{$rev->title}}">
+                  <img src="/{{$rev->image}}" alt="{{$rev->task}}">
                   <button class="b-btn" data-fancybox href="/{{$rev->image_full}}">СМОТРЕТЬ ОТЗЫВ</button>
                 </div>
 

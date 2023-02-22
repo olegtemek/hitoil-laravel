@@ -17,6 +17,7 @@ use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\TeamController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController as ControllersProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -69,4 +70,5 @@ Route::group(['as' => 'front.'], function () {
     Route::post('/get-oil', [HomeController::class, 'getOil'])->name('home.get');
     Route::post('/send-form', [HomeController::class, 'form'])->name('home.form');
     Route::get('/sale', [HomeController::class, 'page'])->name('sale.index');
+    Route::get('/product/{slug}', [ControllersProductController::class, 'index'])->name('product.index');
 });

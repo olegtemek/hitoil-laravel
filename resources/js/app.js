@@ -241,8 +241,22 @@ if (btnForm) {
 
 
 async function sendData(data) {
+
+
+
+  let dataCost = {}
+
+  if (document.getElementById('factory_select')) {
+    dataCost = {
+      factory_title: $('#factory_select option:selected').val().split(' // ')[1],
+      city_title: $('#city_select option:selected').val(),
+      product_title: $('#product_select option:selected').val(),
+      volume: $('#volume').val()
+    }
+  }
+
   try {
-    let res = await axios.post('/send-form', { name: data.name, number: data.number })
+    let res = await axios.post('/send-form', { name: data.name, number: data.number, factory_title: dataCost.factory_title, city_title: dataCost.city_title, product_title: dataCost.product_title, volume: dataCost.volume })
 
     initAlert('Спасибо за заявку, мы свяжемся в ближайшее время', true)
   } catch (e) {
@@ -259,3 +273,173 @@ headerNavs.forEach(link => {
     link.classList.add('active')
   }
 });
+
+
+
+
+
+// FILTERS
+
+if (document.querySelector('.catalog__left-list-bottom-item')) {
+  let filtersAll = document.querySelectorAll('.catalog__left-list-bottom-item')
+
+  filtersAll.forEach(checkbox => {
+    // listener for add filters link
+    checkbox.addEventListener('click', () => {
+      checkbox.classList.toggle('active')
+    })
+  });
+
+  let filterBlocks = document.querySelectorAll('.catalog__left-list-bottom')
+
+  filterBlocks.forEach(block => {
+
+
+    let child = block.children
+
+    Array.from(child).forEach((filter, index) => {
+      if (index > 5) {
+        filter.classList.add('hide')
+      }
+    })
+
+  });
+
+
+  if (document.querySelector('.show-all')) {
+    let showAllBtn = document.querySelectorAll('.show-all')
+    showAllBtn.forEach(btn => {
+      btn.addEventListener('click', () => {
+        let filterBlock = btn.parentNode.parentNode.querySelector('.catalog__left-list-bottom')
+
+        if (filterBlock.querySelector('.hide')) {
+          filterBlock.querySelectorAll('.hide').forEach(item => item.classList.remove('hide'))
+          btn.innerText = 'Скрыть'
+        } else {
+          btn.innerText = 'Показать все'
+          filterBlock.querySelectorAll('.catalog__left-list-bottom-item').forEach((filter, index) => {
+            filter.classList.remove('active')
+            if (index > 5) {
+              filter.classList.add('hide')
+            }
+          })
+        }
+      })
+    });
+  }
+
+
+
+
+  // others filters
+
+  let otherBtn = document.querySelectorAll('.other-filter')
+
+  otherBtn.forEach(item => {
+    item.addEventListener('click', () => {
+      item.classList.toggle('active')
+    })
+  })
+
+
+  // create link with filters
+
+  let filteredBtn = document.querySelectorAll('.filtered')
+
+  document.querySelector('.filter-clear').addEventListener('click', () => {
+    window.location.href = window.location.origin + window.location.pathname
+  })
+
+  filteredBtn.forEach(btn => {
+    btn.addEventListener('click', () => {
+
+      let filter = {
+        type: [],
+        viscosity: [],
+        volume: [],
+        brand: [],
+        last: false,
+        popular: false
+      }
+
+
+      document.querySelectorAll('.catalog__left-list-bottom-item.active[data-filter="type"]').forEach(item => filter.type.push(item.dataset.id))
+      document.querySelectorAll('.catalog__left-list-bottom-item.active[data-filter="viscosity"]').forEach(item => filter.viscosity.push(item.dataset.id))
+      document.querySelectorAll('.catalog__left-list-bottom-item.active[data-filter="volume"]').forEach(item => filter.volume.push(item.dataset.id))
+      document.querySelectorAll('.catalog__left-list-bottom-item.active[data-filter="brand"]').forEach(item => filter.brand.push(item.dataset.id))
+      document.querySelectorAll('.other-filter.active[data-filter="last"]').forEach(i => filter.last = true)
+      document.querySelectorAll('.other-filter.active[data-filter="popular"]').forEach(i => filter.popular = true)
+
+
+
+      function makeParams(filters) {
+        let params = '';
+
+
+        filters.forEach(array => {
+
+          if (array[0].length > 0) {
+
+            let str = '';
+
+            array[0].forEach(filter => {
+              str += filter + ','
+            })
+
+
+            params += array[1] + '=' + str.slice(0, -1) + '&'
+          }
+        })
+
+        return params;
+      }
+
+
+
+      let pathname = window.location.pathname;
+
+      let params = makeParams([[filter.type, 'type'], [filter.brand, 'brand'], [filter.viscosity, 'viscosity'], [filter.volume, 'volume']])
+
+      if (filter.last) {
+        params += 'last=1&'
+      }
+      if (filter.popular) {
+        params += 'popular=1&'
+      }
+
+
+
+
+      if (params == '') {
+        window.location.href = window.location.origin + pathname
+      } else {
+        window.location.href = window.location.origin + pathname + '?' + params.slice(0, -1)
+      }
+
+    })
+  })
+
+
+
+  let openFilters = document.getElementById('open_filter')
+
+  const eventListener = (e) => {
+    if (e.target.classList[0] != 'catalog__left-list-bottom-item' && e.target.classList[0] != 'catalog__left-list-bottom' && e.target.classList[0] != 'catalog__left-list') {
+      openFilters.click()
+    }
+  }
+  openFilters.addEventListener('click', (e) => {
+    e.stopPropagation()
+    let filters = document.querySelector('.catalog__left')
+    filters.classList.toggle('active')
+
+    if (filters.classList[1]) {
+      window.addEventListener('click', eventListener)
+    } else {
+      removeEventListener('click', eventListener)
+    }
+
+  })
+}
+
+

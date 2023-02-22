@@ -20,8 +20,16 @@ class Product extends Model
         'price',
         'model',
         'base',
-        'slug'
+        'slug',
+        'images',
+        'popular'
     ];
+
+
+    public function parent()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
 
     public function brand()
     {

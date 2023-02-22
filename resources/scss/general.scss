@@ -174,11 +174,24 @@ body {
   font-weight: $fw-bold;
   color: $white;
   text-transform: uppercase;
-  clip-path: polygon(6% 0, 100% 0%, 94% 100%, 0% 100%);
+  clip-path: polygon(2% 0, 100% 0%, 98% 100%, 0% 100%);
 
   @media (max-width:920px) {
     padding: 14px 40px;
   }
+
+  &-c {
+    padding: 20px 60px;
+    background: linear-gradient(90deg, rgba(200, 64, 74, 1) 0%, rgba(255, 66, 72, 1) 28%, rgba(255, 66, 72, 1) 100%);
+    font-weight: $fw-bold;
+    color: $white;
+    text-transform: uppercase;
+
+    @media (max-width:920px) {
+      padding: 14px 40px;
+    }
+  }
+
 }
 
 
@@ -223,7 +236,8 @@ body {
 
 
 .seo {
-  margin-top: 40px;
+  padding: 20px 0;
+
 
   h1 {
     font-size: 18px;

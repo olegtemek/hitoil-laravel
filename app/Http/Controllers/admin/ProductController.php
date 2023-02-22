@@ -21,6 +21,7 @@ class ProductController extends Controller
      */
     public function index()
     {
+
         $products = Product::all();
         return view('admin.product.index', compact('products'));
     }
@@ -59,7 +60,10 @@ class ProductController extends Controller
             'price' => $request->price,
             'model' => $request->model,
             'base' => $request->base,
-            'slug' => Str::slug($request->title)
+            'slug' => Str::slug($request->title),
+            'images' => $request->images,
+            'popular' => $request->popular ? true : false,
+            'description' => $request->description,
         ];
         Product::create($data);
         return redirect()->route('admin.product.index')->with('message', 'Товар был добавлен');
@@ -112,7 +116,10 @@ class ProductController extends Controller
             'price' => $request->price,
             'model' => $request->model,
             'base' => $request->base,
-            'slug' => Str::slug($request->title)
+            'slug' => Str::slug($request->title),
+            'images' => $request->images,
+            'popular' => $request->popular ? true : false,
+            'description' => $request->description,
         ];
         Product::find($id)->update($data);
         return redirect()->route('admin.product.index')->with('message', 'Товар был изменен');

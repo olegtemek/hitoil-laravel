@@ -29,7 +29,6 @@ class ProductRequest extends FormRequest
             'viscosity' => 'required',
             'category_id' => 'required',
             'volume' => 'required',
-            'price' => 'required',
             'model' => 'required',
             'base' => 'required',
         ];

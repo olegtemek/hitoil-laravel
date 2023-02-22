@@ -41,6 +41,7 @@ class CategoryController extends Controller
     {
         Category::create([
             'title' => $request->title,
+            'image' => $request->image,
             'seo_title' => $request->seo_title,
             'seo_description' => $request->seo_description,
             'seo_text' => $request->seo_text,
@@ -84,6 +85,7 @@ class CategoryController extends Controller
     {
         Category::find($id)->update([
             'title' => $request->title,
+            'image' => $request->image,
             'seo_title' => $request->seo_title,
             'seo_description' => $request->seo_description,
             'seo_text' => $request->seo_text,
