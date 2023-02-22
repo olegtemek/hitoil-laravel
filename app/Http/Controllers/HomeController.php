@@ -61,6 +61,8 @@ class HomeController extends Controller
             $data['categories']  = Category::all();
             return view('oil.index', compact('data'));
         }
+
+        return redirect('/');
     }
 
     public function getOil(Request $req)
@@ -84,6 +86,7 @@ class HomeController extends Controller
             'city_title' => $req->city_title,
             'product_title' => $req->product_title,
             'volume' => $req->volume,
+            'product' => $req->product
         ];
 
 

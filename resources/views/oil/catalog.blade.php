@@ -3,7 +3,7 @@
 
 @section('content')
 
-@include('components.breadcrums', ['pages'=>[[route('front.catalog.index', $data['page']->slug), $data['page']->title]]])
+@include('components.breadcrums', ['pages'=>[[route('front.catalog.index', $data['page']->slug), $data['page']->title]],'product'=>true])
 
 
 <section class="catalog">

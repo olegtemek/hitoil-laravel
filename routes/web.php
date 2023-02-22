@@ -71,4 +71,6 @@ Route::group(['as' => 'front.'], function () {
     Route::post('/send-form', [HomeController::class, 'form'])->name('home.form');
     Route::get('/sale', [HomeController::class, 'page'])->name('sale.index');
     Route::get('/product/{slug}', [ControllersProductController::class, 'index'])->name('product.index');
+    Route::get('/cart/check', [ControllersProductController::class, 'cart'])->name('cart.index');
+    Route::post('/addtocart', [ControllersProductController::class, 'add'])->name('cart.add');
 });

@@ -83,6 +83,12 @@ class DatabaseSeeder extends Seeder
                 'image' => 'images/pages/intro2.jpg',
                 'slug' => 'oil',
             ],
+            [
+                'title' => 'Корзина',
+                'description' => '',
+                'image' => 'images/category/category5.png',
+                'slug' => 'cartesdassa'
+            ],
         ];
 
         DB::table('pages')->insert($pages);
@@ -113,7 +119,7 @@ class DatabaseSeeder extends Seeder
                 'title' => 'Компрессорные масла',
                 'image' => 'images/category/category5.png',
                 'slug' => 'compr-oil'
-            ],
+            ]
         ];
 
         DB::table('categories')->insert($categories);

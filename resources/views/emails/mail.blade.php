@@ -13,3 +13,9 @@
 @if ($mailData['product_title'])
     <p>Продукция: {{$mailData['product_title']}}</p>
 @endif
+
+@if ($mailData['product'])
+    <p>Товар: {{$mailData['product']['title']}}</p>
+    <p>Цена: {{$mailData['product']['price']}}</p>
+    <p>Количество: {{$mailData['product']['qty']}}</p>
+@endif

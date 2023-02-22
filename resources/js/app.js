@@ -70,7 +70,7 @@ if (document.querySelector('.header__burger')) {
 
 //SLiders 
 
-import Swiper, { Navigation, Autoplay } from 'swiper';
+import Swiper, { Navigation, Autoplay, Thumbs } from 'swiper';
 import 'swiper/swiper-bundle.css';
 import 'swiper/css/navigation';
 
@@ -102,15 +102,28 @@ const certificatesSlider = new Swiper('.certificates__slider', {
 const reviewsSlider = new Swiper('.reviews__slider', {
   modules: [Navigation, Autoplay],
   centeredSlides: true,
-  // autoplay: {
-  //   delay: 2500
-  // },
+  autoplay: {
+    delay: 2500
+  },
   navigation: {
     nextEl: '.reviews-button-next',
     prevEl: '.reviews-button-prev',
   }
 });
 
+
+const thumbProduct = new Swiper(".product__images-main", {
+  spaceBetween: 10,
+  slidesPerView: 6,
+  freeMode: true,
+});
+const thumbProduct2 = new Swiper(".product__images-second", {
+  modules: [Thumbs],
+  spaceBetween: 10,
+  thumbs: {
+    swiper: thumbProduct,
+  },
+});
 
 
 
@@ -242,8 +255,6 @@ if (btnForm) {
 
 async function sendData(data) {
 
-
-
   let dataCost = {}
 
   if (document.getElementById('factory_select')) {
@@ -254,9 +265,25 @@ async function sendData(data) {
       volume: $('#volume').val()
     }
   }
+  let product = null;
+  if (document.querySelector('.product-title')) {
+    product = {
+      title: document.querySelector('.product-title').innerText,
+      price: document.querySelector('.product-price').innerText,
+      qty: document.querySelector('.product-qty').value,
+    }
+  }
 
   try {
-    let res = await axios.post('/send-form', { name: data.name, number: data.number, factory_title: dataCost.factory_title, city_title: dataCost.city_title, product_title: dataCost.product_title, volume: dataCost.volume })
+    let res = await axios.post('/send-form', {
+      name: data.name,
+      number: data.number,
+      factory_title: dataCost.factory_title,
+      city_title: dataCost.city_title,
+      product_title: dataCost.product_title,
+      volume: dataCost.volume,
+      product: product
+    })
 
     initAlert('Спасибо за заявку, мы свяжемся в ближайшее время', true)
   } catch (e) {
@@ -443,3 +470,46 @@ if (document.querySelector('.catalog__left-list-bottom-item')) {
 }
 
 
+
+if (document.querySelector('.product-qty')) {
+  let qty = document.querySelector('.product-qty')
+
+  let pluses = document.querySelectorAll('.plus')
+  let minuses = document.querySelectorAll('.minus')
+
+  pluses.forEach((plus) => {
+    plus.addEventListener('click', () => {
+      let qty = plus.parentNode.querySelector('input')
+      qty.value++
+    })
+  })
+
+
+  minuses.forEach(minus => {
+    minus.addEventListener('click', () => {
+      let qty = minus.parentNode.querySelector('input')
+
+      if (qty.value >= 2) {
+        qty.value--
+      }
+    })
+  })
+
+  if (document.querySelector('.product-addcart')) {
+    let add = document.querySelector('.product-addcart')
+    add.addEventListener('click', async () => {
+
+
+      let res = await axios.post('/addtocart', {
+        qty: document.querySelector('.product-qty').value,
+        id: document.querySelector('.product-id').value
+      })
+
+      if (res.data.code == 200) {
+        initAlert('Товар был добавлен в корзину', true)
+      } else {
+        initAlert('Ошибка, попробуйте позже', false)
+      }
+    })
+  }
+}

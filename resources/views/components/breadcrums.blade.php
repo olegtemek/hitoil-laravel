@@ -9,5 +9,9 @@
           </a>
       @endforeach
     </div>
+
+    @if (isset($product))
+        <a href="{{route('front.cart.index')}}" class="btn-c">Перейти в корзину</a>
+    @endif
   </div>
 </section>
