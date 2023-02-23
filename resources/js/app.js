@@ -546,7 +546,7 @@ if (document.querySelector('.qty')) {
   function initCart() {
 
     let sendCart = document.querySelector('.send-cart')
-    sendCart.addEventListener('click', () => {
+    sendCart.addEventListener('click', async () => {
 
 
 
@@ -558,7 +558,7 @@ if (document.querySelector('.qty')) {
       let result = validate(name, number, agree)
 
       if (result) {
-        sendData({
+        await sendData({
           name: name,
           number: number,
           cart: true
@@ -566,7 +566,9 @@ if (document.querySelector('.qty')) {
         document.querySelector('input[name="name_cart"]').value = null
         document.querySelector('input[name="number_cart"]').value = null
 
-        location.reload()
+        setTimeout(() => {
+          location.reload()
+        }, 1000);
       }
     })
 
