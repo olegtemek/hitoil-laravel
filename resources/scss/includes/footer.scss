@@ -222,6 +222,7 @@
     &-right {
       display: flex;
       align-items: center;
+      justify-content: center;
 
       @media (max-width:700px) {
         flex-direction: column;
@@ -229,24 +230,32 @@
         width: 100%;
       }
 
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1px;
+        height: 100%;
+        margin: 0 5px;
+
+        @media (max-width:700px) {
+          display: none;
+        }
+      }
+
       a {
-        margin-right: 5px;
-        border-right: 1px solid $white;
-        padding-right: 5px;
         border-bottom: 1px solid $white;
         font-size: 14px;
 
+        @media (max-width:920px) {
+          font-size: 12px;
+        }
+
         @media (max-width:700px) {
-          margin-right: 0;
-          padding-right: 0;
-          border-right: none;
           margin-bottom: 10px;
         }
 
         &:last-child {
-          margin-right: 0;
-          padding-right: 0;
-          border-right: none;
           margin-bottom: 0;
         }
       }

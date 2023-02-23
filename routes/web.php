@@ -73,4 +73,7 @@ Route::group(['as' => 'front.'], function () {
     Route::get('/product/{slug}', [ControllersProductController::class, 'index'])->name('product.index');
     Route::get('/cart/check', [ControllersProductController::class, 'cart'])->name('cart.index');
     Route::post('/addtocart', [ControllersProductController::class, 'add'])->name('cart.add');
+    Route::post('/updatecart', [ControllersProductController::class, 'update'])->name('cart.update');
+    Route::post('/deletecart', [ControllersProductController::class, 'destroy'])->name('cart.destroy');
+    Route::get('/cart/clear', [ControllersProductController::class, 'destroyAll'])->name('cart.clear');
 });

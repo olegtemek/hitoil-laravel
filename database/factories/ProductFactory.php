@@ -17,7 +17,7 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
-        $title = fake()->text(10);
+        $title = fake()->text(40);
         $images = ['images/products/product1.jpg', 'images/products/product1.jpg', 'images/products/product1.jpg', 'images/products/product1.jpg', 'images/products/product1.jpg'];
 
         return [
@@ -28,8 +28,8 @@ class ProductFactory extends Factory
             'volume_id' => fake()->numberBetween(1, 4),
             'type_id' => fake()->numberBetween(1, 4),
             'price' => fake()->numberBetween(200, 1000),
-            'model' => $title,
-            'base' => $title,
+            'model' => fake()->text(10),
+            'base' => fake()->text(10),
             'slug' => Str::slug($title),
             'images' => json_encode($images),
             'popular' => fake()->numberBetween(0, 1),

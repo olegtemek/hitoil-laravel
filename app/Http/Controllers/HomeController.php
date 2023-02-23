@@ -78,7 +78,6 @@ class HomeController extends Controller
 
     public function form(Request $req)
     {
-
         $mailData = [
             'name' => $req->name,
             'number' => $req->number,
@@ -86,13 +85,18 @@ class HomeController extends Controller
             'city_title' => $req->city_title,
             'product_title' => $req->product_title,
             'volume' => $req->volume,
-            'product' => $req->product
+            'product' => $req->product,
+            'cart' => $req->cart
         ];
+
+
+
 
 
         FacadesMail::to(env('ADMIN_EMAIL'))->send(new SendMail($mailData));
 
-
-        return true;
+        if ($mailData['cart']) {
+            \Cart::clear();
+        }
     }
 }

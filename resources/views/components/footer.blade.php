@@ -3,14 +3,14 @@
   <div class="footer__top-wrapper">
     <div class="footer__top-column">
       <h3>Топливо</h3>
-      <a href="#">Бензин</a>
-      <a href="#">Дизельное Топливо</a>
+      <a href="/">Бензин</a>
+      <a href="/">Дизельное Топливо</a>
     </div>
     <div class="footer__top-column">
       <h3>Масло</h3>
-      <a href="#">Моторное</a>
-      <a href="#">Трансмиссионое</a>
-      <a href="#">Трансформаторное</a>
+      @foreach (\App\Models\Category::all() as $item)
+      <a href="{{route('front.catalog.index', $item->slug)}}">{{explode(' ', $item->title)[0]}}</a>
+      @endforeach
     </div>
 
     <div class="footer__top-column">
@@ -52,6 +52,7 @@
     </div>
     <div class="footer__bottom-right">
       <a href="#">Пользовательское соглашение</a>
+      <span>|</span>
       <a href="#">Политика обработки данных</a>
     </div>
   </div>

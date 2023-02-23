@@ -17,10 +17,30 @@
               <img src="/{{$item}}"  alt="Image"/>
             </div>
             @endforeach
+            @foreach (json_decode($data['page']->images) as $item)
+            <div class="swiper-slide">
+              <img src="/{{$item}}"  alt="Image"/>
+            </div>
+            @endforeach
+            @foreach (json_decode($data['page']->images) as $item)
+            <div class="swiper-slide">
+              <img src="/{{$item}}"  alt="Image"/>
+            </div>
+            @endforeach
           </div>
         </div>
         <div thumbsSlider="" class="swiper product__images-main">
           <div class="swiper-wrapper">
+            @foreach (json_decode($data['page']->images) as $item)
+            <div class="swiper-slide">
+              <img src="/{{$item}}"  alt="Image"/>
+            </div>
+            @endforeach
+            @foreach (json_decode($data['page']->images) as $item)
+            <div class="swiper-slide">
+              <img src="/{{$item}}"  alt="Image"/>
+            </div>
+            @endforeach
             @foreach (json_decode($data['page']->images) as $item)
             <div class="swiper-slide">
               <img src="/{{$item}}"  alt="Image"/>
@@ -37,7 +57,7 @@
       <input type="hidden" value="{{$data['page']->id}}" class="product-id">
       <div class="product__text">
         <div class="product__text-price">
-          <span class="product-price">{{$data['page']->price}} ТГ</span>
+          <span class="product-price price"><span>{{$data['page']->price}}</span> ТГ</span>
           <div class="product__text-price-qty">
             <button class="minus">-</button>
             <input type="text" readonly class="product-qty" value="1">
@@ -91,13 +111,13 @@
         @if($data['page']->description)
         <div class="product__text-description">
           <h2>Описание</h2>
-
+          <input type="hidden" class="product-link" value="{{route('front.product.index', $data['page']->slug)}}">
           <p>{{$data['page']->description}}</p>
         </div>
         @endif
       </div>
       <div class="product__other">
-        @include('components.recomended', ['items'=>$data['recom']])
+        @include('components.recommended', ['items'=>$data['recom']])
       </div>
     </div>
   </div>

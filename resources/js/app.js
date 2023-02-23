@@ -111,15 +111,42 @@ const reviewsSlider = new Swiper('.reviews__slider', {
   }
 });
 
+const recommendedSlider = new Swiper('.recommended__slider', {
+  modules: [Navigation],
+  slidesPerView: "auto",
+  spaceBetween: 30,
+  breakpoints: {
+    0: {
+      slidesPerView: 2,
+    },
+    640: {
+      slidesPerView: "auto"
+    },
+    920: {
+      slidesPerView: 2,
+    },
+    1112: {
+      slidesPerView: "auto"
+    }
+  },
+  navigation: {
+    nextEl: '.recommended-button-next',
+    prevEl: '.recommended-button-prev',
+  }
+});
+
 
 const thumbProduct = new Swiper(".product__images-main", {
   spaceBetween: 10,
-  slidesPerView: 6,
+  slidesPerView: "auto",
+  loop: true,
   freeMode: true,
 });
 const thumbProduct2 = new Swiper(".product__images-second", {
   modules: [Thumbs],
   spaceBetween: 10,
+  loop: true,
+
   thumbs: {
     swiper: thumbProduct,
   },
@@ -129,7 +156,6 @@ const thumbProduct2 = new Swiper(".product__images-second", {
 
 if (document.getElementById('select_type')) {
 
-  console.log('test');
   const selectType = customSelect('#select_type')[0];
   const selectFactory = customSelect('#select_factory')[0]
 
@@ -282,7 +308,8 @@ async function sendData(data) {
       city_title: dataCost.city_title,
       product_title: dataCost.product_title,
       volume: dataCost.volume,
-      product: product
+      product: product,
+      cart: data.cart
     })
 
     initAlert('Спасибо за заявку, мы свяжемся в ближайшее время', true)
@@ -511,5 +538,99 @@ if (document.querySelector('.product-qty')) {
         initAlert('Ошибка, попробуйте позже', false)
       }
     })
+  }
+}
+
+
+if (document.querySelector('.qty')) {
+  function initCart() {
+
+    let sendCart = document.querySelector('.send-cart')
+    sendCart.addEventListener('click', () => {
+
+
+
+      let name = document.querySelector('input[name="name_cart"]').value
+      let number = document.querySelector('input[name="number_cart"]').value
+      let agree = document.querySelector('input[name="checkbox_cart"]').checked
+
+
+      let result = validate(name, number, agree)
+
+      if (result) {
+        sendData({
+          name: name,
+          number: number,
+          cart: true
+        })
+        document.querySelector('input[name="name_cart"]').value = null
+        document.querySelector('input[name="number_cart"]').value = null
+
+        location.reload()
+      }
+    })
+
+    let qty = document.querySelector('.qty')
+
+    let pluses = document.querySelectorAll('.plus')
+    let minuses = document.querySelectorAll('.minus')
+
+    pluses.forEach((plus) => {
+      plus.addEventListener('click', () => {
+        let parent = plus.parentNode
+        let qty = parent.querySelector('input')
+        qty.value++
+        updateCart(parent.parentNode)
+      })
+    })
+
+    minuses.forEach(minus => {
+      minus.addEventListener('click', () => {
+        let parent = minus.parentNode
+        let qty = parent.querySelector('input')
+
+        if (qty.value >= 2) {
+          qty.value--
+
+          updateCart(parent.parentNode)
+        }
+
+
+      })
+    })
+
+
+    let deleteCart = document.querySelectorAll('.delete')
+    deleteCart.forEach(btn => {
+      btn.addEventListener('click', async () => {
+        let res = await axios.post('/deletecart', { id: btn.parentNode.querySelector('.id').value })
+        if (res.data.code == 200) {
+          initAlert('Товар был удален с корзины', true)
+          document.querySelector('.cart__wrapper').innerHTML = res.data.html
+          initCart()
+        } else {
+          initAlert('Ошибка, попробуйте позже', false)
+        }
+      })
+    });
+  }
+  initCart()
+
+  async function updateCart(block) {
+
+    let product = {
+      qty: block.querySelector('.qty').value,
+      id: block.querySelector('.id').value,
+    }
+
+
+    let res = await axios.post('/updatecart', product)
+
+    if (res.data.code == 200) {
+      document.querySelector('.cart__wrapper').innerHTML = res.data.html
+      initCart()
+    } else {
+      initAlert('Ошибка, попробуйте позже', false)
+    }
   }
 }

@@ -15,9 +15,9 @@
           <li>
             <a href="{{route('front.page', 'oil')}}">Масла</a>
           </li>
-          <li>
+          {{-- <li>
             <a href="#">О нас</a>
-          </li>
+          </li> --}}
           <li>
             <a href="{{route('front.page', 'sale')}}">Акции</a>
           </li>

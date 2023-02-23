@@ -19,3 +19,37 @@
     <p>Цена: {{$mailData['product']['price']}}</p>
     <p>Количество: {{$mailData['product']['qty']}}</p>
 @endif
+
+@if($mailData['cart'])
+    <table>
+        <thead>
+            <tr>
+                <td>
+                    Название
+                </td>
+                <td>
+                    Количество
+                </td>
+                <td>
+                    Цена
+                </td>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (\Cart::getContent() as $item)
+            <tr>
+                <td>
+                    {{$item->name}}   
+                </td>
+                <td>
+                    {{$item->quantity}}   
+                </td>
+                <td>
+                    {{$item->getPriceSum()}} ТГ
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+@endif
