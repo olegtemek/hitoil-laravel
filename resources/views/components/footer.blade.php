@@ -25,8 +25,9 @@
       <a href="mailto:{{$global_data['settings']->email}}">E-mail: <span>{{$global_data['settings']->email}}</span></a>
     </div>
 
-    <div class="footer__top-map">
-      <img src="{{ Vite::asset('resources/assets/map-hover.jpg') }}" alt="Карта">
+    <div class="footer__top-map" id="map_footer">
+      <img src="{{ Vite::asset('resources/assets/map-hover.png') }}" alt="Карта">
+      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Abfedb35aead23f05cf801b7e83d9b1e874c94af47e336dcda06ae3c84f6d9d55&amp;source=constructor" width="100%" height="100%" frameborder="0"></iframe>
     </div>
     
   </div>

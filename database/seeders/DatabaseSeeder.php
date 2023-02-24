@@ -128,14 +128,14 @@ class DatabaseSeeder extends Seeder
         Volume::factory(4)->create();
         Viscosity::factory(4)->create();
         Type::factory(4)->create();
-        Product::factory(100)->create();
+        Product::factory(10)->create();
         Factory::factory(5)->create();
         Partner::factory(5)->create();
         Sale::factory(3)->create();
         Certificate::factory(5)->create();
         Review::factory(5)->create();
 
-        Petrol::factory(120)->create();
+        Petrol::factory(10)->create();
 
         Setting::factory(1)->create();
     }

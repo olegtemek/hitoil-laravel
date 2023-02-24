@@ -44,6 +44,6 @@ white
       @endif
       
     </div>
-    <a href="#" class="btn">СМОТРЕТЬ ВСЕ</a>
+    <a href="{{route('front.page', 'sale')}}" class="btn">СМОТРЕТЬ ВСЕ</a>
   </div>
 </section>

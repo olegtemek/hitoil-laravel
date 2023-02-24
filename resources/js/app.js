@@ -241,7 +241,9 @@ btnModal.addEventListener('click', function () {
   let name = inputs[0].value
   let number = inputs[1].value
 
-  let result = validate(name, number)
+  let checkbox = inputs[2].checked
+
+  let result = validate(name, number, checkbox)
   if (result) {
     sendData({
       name: name,
@@ -636,3 +638,9 @@ if (document.querySelector('.qty')) {
     }
   }
 }
+
+let footerMap = document.getElementById('map_footer')
+
+footerMap.addEventListener('mouseover', () => {
+  footerMap.classList.add('active')
+})

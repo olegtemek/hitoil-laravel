@@ -46,6 +46,20 @@
       width: 290px;
       height: 214px;
 
+      &.active {
+        img {
+          display: none;
+        }
+
+        iframe {
+          display: block;
+        }
+      }
+
+      iframe {
+        display: none;
+      }
+
       @media (max-width:1112px) {
         width: 220px;
         height: 160px;

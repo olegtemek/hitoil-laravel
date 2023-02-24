@@ -8,7 +8,7 @@
           предназначенияи предлагает клиентам привлекательные 
           условия сотрудничества</p>
 
-          <a href="#" class="b-btn">Подробнее</a>
+          <a href="{{route('front.page', 'contacts')}}" class="b-btn">Подробнее</a>
       </div>
 
       <div class="about__right" data-fancybox href="{{ Vite::asset('resources/assets/about.mp4') }}">
