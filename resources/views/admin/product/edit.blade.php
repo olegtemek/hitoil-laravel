@@ -72,7 +72,7 @@
               @error('description')
               <span class="error text-danger">{{ $message }}</span>
               @enderror
-              <textarea name="descripton" class="form-control" style="min-height:150px;">{{$product->description}}</textarea>
+              <textarea name="description" class="form-control" style="min-height:150px;">{{$product->description}}</textarea>
             </div>
           </div>
 
@@ -129,7 +129,7 @@
                 <span class="error text-danger">{{ $message }}</span>
                 @enderror
                 <select name="type" class="form-control">
-                  @foreach ($viscosities as $filter)
+                  @foreach ($types as $filter)
                   <option @if($product->type_id == $filter->id) selected @endif value="{{$filter->id}}">{{$filter->title}}</option>
                 @endforeach
                 </select>

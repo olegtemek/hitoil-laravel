@@ -71,7 +71,7 @@
               @error('description')
               <span class="error text-danger">{{ $message }}</span>
               @enderror
-              <textarea name="descripton" class="form-control" style="min-height:150px;">{{old('description')}}</textarea>
+              <textarea name="description" class="form-control" style="min-height:150px;">{{old('description')}}</textarea>
             </div>
           </div>
 

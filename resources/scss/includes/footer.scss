@@ -30,7 +30,7 @@
 
       @media (max-width:630px) {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr 260px;
+        grid-template-rows: 1fr 0fr 260px;
 
         grid-template-areas:
           "column1 column2"

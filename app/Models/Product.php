@@ -22,7 +22,8 @@ class Product extends Model
         'base',
         'slug',
         'images',
-        'popular'
+        'popular',
+        'description',
     ];
 
 

@@ -168,7 +168,7 @@
 
 
       >span {
-        font-size: 24px;
+        font-size: 20px;
         font-weight: $fw-extraBold;
 
         @media (max-width:920px) {
@@ -182,7 +182,7 @@
 
       &-qty {
         margin: 0 20px;
-        max-width: 150px;
+        max-width: 130px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -202,6 +202,11 @@
           height: 100%;
           box-sizing: border-box;
 
+          @media (max-width:1112px) {
+            width: 44px;
+            font-size: 40px;
+          }
+
           @media (max-width:920px) {
             font-size: 14px;
             width: 30px;
@@ -214,6 +219,10 @@
           background-color: $gray-darken;
           height: 100%;
 
+          @media (max-width:1112px) {
+            width: 36px;
+          }
+
           @media (max-width:920px) {
             font-size: 26px;
             width: 30px;
@@ -224,6 +233,15 @@
       >button {
         height: 100%;
         padding: 0 40px;
+        box-sizing: border-box;
+
+        @media (max-width:1112px) {
+          padding: 0 8px;
+        }
+
+        @media (max-width:920px) {
+          padding: 0 40px;
+        }
 
         @media (max-width:560px) {
           height: 40px;

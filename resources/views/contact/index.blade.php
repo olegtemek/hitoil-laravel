@@ -8,7 +8,7 @@
       <div class="container">
         <h1 class="title">{{$data['page']->title}}</h1>
         <div class="contacts__wrapper">
-          <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A93bad589004839f982d2a9e085b22d14915a8a43f4030d529c28594483f153ee&amp;source=constructor" width="500" height="400" frameborder="0"></iframe>
+          <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Abfedb35aead23f05cf801b7e83d9b1e874c94af47e336dcda06ae3c84f6d9d55&amp;source=constructor" width="100%" height="100%" frameborder="0"></iframe>
          <div class="contacts__block">
           <div class="contacts__block-left">
             <h2>Головной офис</h2>

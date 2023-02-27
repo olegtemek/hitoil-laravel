@@ -547,6 +547,32 @@ if (document.querySelector('.product-qty')) {
 if (document.querySelector('.qty')) {
   function initCart() {
 
+
+    const recommendedSlider = new Swiper('.recommended__slider', {
+      modules: [Navigation],
+      slidesPerView: "auto",
+      spaceBetween: 30,
+      breakpoints: {
+        0: {
+          slidesPerView: 2,
+        },
+        640: {
+          slidesPerView: "auto"
+        },
+        920: {
+          slidesPerView: 2,
+        },
+        1112: {
+          slidesPerView: "auto"
+        }
+      },
+      navigation: {
+        nextEl: '.recommended-button-next',
+        prevEl: '.recommended-button-prev',
+      }
+    });
+
+
     let sendCart = document.querySelector('.send-cart')
     sendCart.addEventListener('click', async () => {
 

@@ -22,6 +22,7 @@
             <thead>
               <tr>
                 <th>Название</th>
+                <th>Категория</th>
                 <th>Цена</th>
                 <th>Удалить/Изменить</th>
               </tr>
@@ -31,6 +32,7 @@
             <tr>
               
               <td>{{$product->title}}</td>
+              <td>{{$product->parent->title}}</td>
               <td>{{$product->price ?? 'Цену уточняйте'}}</td>
               <td>
                 <a href="{{route('admin.product.edit', $product->id)}}" class="btn btn-primary">Изменить</a>

@@ -12,7 +12,7 @@
                 <div class="swiper-slide-right">
                   <h3 class="ex-bold">{{$partner->title}}</h3>
                   <p>{{$partner->description}}</p>
-                  <button class="b-btn">Подробнее</button>
+                  <a rel="nofollow" href="{{$partner->link}}" target="_blank" class="b-btn">Подробнее</a>
                 </div>
               </div>
           @endforeach

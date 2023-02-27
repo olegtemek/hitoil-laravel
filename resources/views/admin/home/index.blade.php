@@ -10,7 +10,7 @@
 <section class="content">
   <div class="container-fluid">
     <div class="row">
-      test
+      Главная
     </div>
   </div>
 </section>

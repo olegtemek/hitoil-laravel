@@ -119,13 +119,8 @@ body {
     justify-content: flex-start;
     margin-right: 20px;
 
-    @media (max-width:720px) {
+    @media (max-width:920px) {
       display: none;
-    }
-
-    @media (max-width:720px) {
-      margin-right: 0;
-      margin-bottom: 10px;
     }
 
     a {

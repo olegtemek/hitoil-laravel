@@ -136,7 +136,7 @@
           @if($data['products']->count() >0)
             @foreach ($data['products'] as $item)
                 <a href="{{route('front.product.index', $item->slug)}}" class="catalog__right-bottom-item">
-                  <img src="/{{json_decode($item->images)[0]}}" alt="">
+                  <img src="/{{json_decode($item->images)[0]}}" alt="{{$item->title}} Изображение">
                   <h3>{{$item->title}}</h3>
                   @if ($item->price > 0)
                       <p>{{$item->price}} ТГ</p>
