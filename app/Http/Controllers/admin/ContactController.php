@@ -74,10 +74,10 @@ class ContactController extends Controller
     {
         Contact::find(1)->update([
             'time' => $request->time,
-            'email' => $request->email,
+            'email' => 'email',
             'address' => $request->address,
-            'number' => $request->number,
-            'number_whatsapp' => $request->number_whatsapp,
+            'number' => 'number',
+            'number_whatsapp' => 'whatsapp',
         ]);
 
         return redirect()->route('admin.contact.index')->with('message', 'Контакты были успешно сохранены');

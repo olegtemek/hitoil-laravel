@@ -24,9 +24,9 @@ class ContactRequest extends FormRequest
     public function rules()
     {
         return [
-            'number' => 'required',
-            'email' => 'required',
-            'number_whatsapp' => 'required',
+            // 'number' => 'required',
+            // 'email' => 'required',
+            // 'number_whatsapp' => 'required',
             'time' => 'required',
             'address' => 'required',
         ];

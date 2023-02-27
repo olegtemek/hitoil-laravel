@@ -3,7 +3,7 @@
     <div class="petrol__wrapper">
       <div class="petrol__top">
         <select id="select_type">
-          <option value="0">Топливо</option>
+          <option value="0">Бензин</option>
           <option value="1">Диз топливо</option>
         </select>
 

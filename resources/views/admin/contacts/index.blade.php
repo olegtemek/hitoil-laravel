@@ -24,7 +24,7 @@
               <input type="text" value="{{ $contacts->address }}" class="form-control" name="address" placeholder="Адрес">
             </div>
           </div>
-          <div class="col-sm-6">
+          {{-- <div class="col-sm-6">
             <div class="form-group">
               <label>Email</label>
               @error('email')
@@ -32,8 +32,8 @@
               @enderror
               <input type="text" value="{{ $contacts->email }}" class="form-control" name="email" placeholder="Email">
             </div>
-          </div>
-          <div class="col-sm-4">
+          </div> --}}
+          {{-- <div class="col-sm-4">
             <div class="form-group">
               <label>Номер телефона whatsapp</label>
               @error('number_whatsapp')
@@ -50,7 +50,7 @@
               @enderror
               <input type="text" value="{{ $contacts->number }}" class="form-control" name="number" placeholder="Номер телефона">
             </div>
-          </div>
+          </div> --}}
           <div class="col-sm-4">
             <div class="form-group">
               <label>График работы</label>

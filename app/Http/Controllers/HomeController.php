@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\SendMail;
 use App\Models\Category;
 use App\Models\Certificate;
+use App\Models\Contact;
 use App\Models\Factory;
 use App\Models\Page;
 use App\Models\Partner;
@@ -49,6 +50,7 @@ class HomeController extends Controller
             return view('sale.index', compact('data'));
         }
         if ($data['page']->id == 4) {
+            $data['contact'] = Contact::find(1);
             return view('contact.index', compact('data'));
         }
         if ($data['page']->id == 5) {

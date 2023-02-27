@@ -18,8 +18,7 @@
                   <use xlink:href="#marker"></use>
                 </svg>
               </div>
-              <p>г.Костонай, пр. Аль-Фараби, 65,<br>
-                Бизнес-центр, 604 каб.</p>
+              <p>{{$data['contact']->address}}</p>
             </div>
             <div>
               <div class="svg timer">
@@ -27,7 +26,7 @@
                   <use xlink:href="#time"></use>
                 </svg>
               </div>
-              <p>Ежедневно с <span> 9:00 </span> до <span> 21:00 </span></p>
+              <p>{!! $data['contact']->time !!}</p>
             </div>
             <div>
               <div class="svg mail">
