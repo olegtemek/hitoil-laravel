@@ -11,7 +11,7 @@
           <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A09b23329be79b80ea2909553ec2c446b3604e800ee24252bb573e25af8d6ce0a&amp;source=constructor" width="100%" height="100%" frameborder="0"></iframe>
          <div class="contacts__block">
           <div class="contacts__block-left">
-            <h2>Головной офис</h2>
+            <h2>Офис</h2>
             <div>
               <div class="svg marker">
                 <svg class="icon">

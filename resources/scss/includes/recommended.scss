@@ -71,6 +71,8 @@
         padding-top: 10px;
         font-size: 14px;
         font-weight: $fw-medium;
+        width: 100%;
+        word-wrap: break-word;
 
         @media (max-width:560px) {
           text-align: center;

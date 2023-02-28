@@ -8,7 +8,7 @@
           <img src="/{{$product->attributes->image}}" alt="{{$product->title}}">
         </a>
         <a href="{{$product->attributes->url}}">
-          <h4>{{$product->name}} {{$product->name}} {{$product->name}}</h4>
+          <h4>{{$product->name}} </h4>
         </a>
         <div class="product__text-price-qty">
           <button class="minus">-</button>
