@@ -27,7 +27,7 @@
 
     <div class="footer__top-map" id="map_footer">
       <img src="{{ Vite::asset('resources/assets/map-hover.png') }}" alt="Карта">
-      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A09b23329be79b80ea2909553ec2c446b3604e800ee24252bb573e25af8d6ce0a&amp;source=constructor" width="100%" height="100%" frameborder="0"></iframe>
+      <iframe loading="lazy" src="https://yandex.ru/map-widget/v1/?um=constructor%3A09b23329be79b80ea2909553ec2c446b3604e800ee24252bb573e25af8d6ce0a&amp;source=constructor" width="100%" height="100%" frameborder="0"></iframe>
     </div>
     
   </div>
