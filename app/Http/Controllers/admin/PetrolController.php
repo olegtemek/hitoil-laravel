@@ -46,7 +46,7 @@ class PetrolController extends Controller
             'volume' => $request->volume,
             'factory_id' => $request->factory_id,
             'image' => $request->image,
-            'type' => $request->type ? true : false,
+            'type' => $request->type,
         ]);
         return redirect()->route('admin.petrol.index')->with('message', 'Топливо было успешно добавлено');
     }
@@ -91,7 +91,7 @@ class PetrolController extends Controller
             'volume' => $request->volume,
             'factory_id' => $request->factory_id,
             'image' => $request->image,
-            'type' => $request->type ? true : false,
+            'type' => $request->type,
         ]);
         return redirect()->route('admin.petrol.index')->with('message', 'Топливо было успешно изменено');
     }

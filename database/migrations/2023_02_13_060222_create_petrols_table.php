@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('price');
             $table->string('volume');
             $table->string('image');
-            $table->boolean('type')->default(false);
+            $table->integer('type');
             $table->timestamps();
         });
     }

@@ -74,14 +74,23 @@
           </div>
 
 
+          
+
           <div class="col-sm-6">
             <div class="form-group">
-              <label>Диз топливо?</label>
+              <label for="">Тип Топлива</label>
               @error('type')
               <span class="error text-danger">{{ $message }}</span>
               @enderror
-                <input class="form-control" type="checkbox" name="type">
 
+              <select name="type" class="form-control">
+                <option value="0">Дизельное топливо</option>
+                <option value="1">Бензин автомобильный</option>
+                <option value="2">Топливо для реактивных двигателей</option>
+                <option value="3">Мазут топочный</option>
+                <option value="4">Топливо печное бытовое</option>
+                <option value="5">Битум нефтяной дорожный</option>
+              </select>
             </div>
           </div>
 

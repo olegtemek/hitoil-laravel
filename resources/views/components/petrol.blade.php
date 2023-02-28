@@ -3,8 +3,12 @@
     <div class="petrol__wrapper">
       <div class="petrol__top">
         <select id="select_type">
-          <option value="0">Бензин</option>
-          <option value="1">Диз топливо</option>
+          <option value="0">Бензин автомобильный</option>
+          <option value="1">Дизельное топливо</option>
+          <option value="2">Для реактивных двигателей</option>
+          <option value="3">Мазут топочный</option>
+          <option value="4">Топливо печное бытовое</option>
+          <option value="5">Битум нефтяной дорожный</option>
         </select>
 
         <select id="select_factory">

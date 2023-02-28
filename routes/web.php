@@ -43,7 +43,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     Route::resource('/certificate', CertificateController::class);
     Route::resource('/contact', ContactController::class);
     Route::resource('/partner', PartnerController::class);
-    Route::resource('/team', TeamController::class);
+    // Route::resource('/team', TeamController::class);
     Route::resource('/page', PageController::class);
     Route::resource('/setting', SettingController::class);
     Route::resource('/category', CategoryController::class);

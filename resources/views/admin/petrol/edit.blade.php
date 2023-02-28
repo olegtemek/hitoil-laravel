@@ -81,16 +81,31 @@
 
           <div class="col-sm-6">
             <div class="form-group">
-              <label>Диз топливо?</label>
+              <label for="">Тип Топлива</label>
               @error('type')
               <span class="error text-danger">{{ $message }}</span>
               @enderror
-                <input class="form-control" type="checkbox" name="type" 
-                @if ($petrol->type)
-                        checked
-                    @endif
-                    >
 
+              <select name="type" class="form-control">
+                <option @if ($petrol->type == 0)
+                    selected
+                @endif value="0">Дизельное топливо</option>
+                <option @if ($petrol->type == 1)
+                  selected
+              @endif value="1">Бензин автомобильный</option>
+                <option @if ($petrol->type == 2)
+                  selected
+              @endif value="2">Топливо для реактивных двигателей</option>
+                <option @if ($petrol->type == 3)
+                  selected
+              @endif value="3">Мазут топочный</option>
+                <option @if ($petrol->type == 4)
+                  selected
+              @endif value="4">Топливо печное бытовое</option>
+                <option @if ($petrol->type == 5)
+                  selected
+              @endif value="5">Битум нефтяной дорожный</option>
+              </select>
             </div>
           </div>
 

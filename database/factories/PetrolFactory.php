@@ -20,7 +20,7 @@ class PetrolFactory extends Factory
             'title' => fake()->text(10),
             'price' => '2 000',
             'volume' => '20',
-            'type' => fake()->boolean(),
+            'type' => fake()->numberBetween(0, 4),
             'factory_id' => fake()->numberBetween(1, 4),
             'image' => 'images/partners/bionord.png'
         ];

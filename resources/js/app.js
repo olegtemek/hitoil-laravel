@@ -173,6 +173,8 @@ if (document.getElementById('select_type')) {
       oil: oil
     })
 
+    console.log(res);
+
     document.querySelector('.petrol__table-row-inner').innerHTML = res.data
 
 

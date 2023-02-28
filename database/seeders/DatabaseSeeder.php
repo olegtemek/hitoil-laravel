@@ -35,8 +35,8 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         \App\Models\User::factory()->create([
-            'email' => 'a@a.a',
-            'password' => Hash::make('a')
+            'email' => 'admin',
+            'password' => Hash::make('HitOil2023$!')
         ]);
         Contact::factory()->create([
             'number' => 'number',
@@ -135,7 +135,7 @@ class DatabaseSeeder extends Seeder
         Certificate::factory(5)->create();
         Review::factory(5)->create();
 
-        Petrol::factory(10)->create();
+        Petrol::factory(4)->create();
 
         Setting::factory(1)->create();
     }
