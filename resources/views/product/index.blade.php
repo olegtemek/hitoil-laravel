@@ -80,9 +80,11 @@
           <div class="product__text-stat-item">
             <p>Производитель</p><span>{{$data['page']->brand->value}}</span>
           </div>
+          @if ($data['page']->model)
           <div class="product__text-stat-item">
             <p>Модель</p> <span>{{$data['page']->model}}</span>
           </div>
+          @endif
           <div class="product__text-stat-item">
             <p>Тип масла  <span class="svg"> <span class="tooltiptext">Тип применяемости масла - для чего предназначено масло: 
               для двигателя или трансмиссии</span> <svg class="icon">
@@ -90,20 +92,21 @@
             </svg></span></p>
             <span>{{$data['page']->type->value}}</span>
           </div>
+          @if ($data['page']->base)
           <div class="product__text-stat-item">
-            <p>Основа  <span class="svg"><span class="tooltiptext">Тип применяемости масла - для чего предназначено масло: 
-              для двигателя или трансмиссии</span><svg class="icon">
+            <p>Основа  <span class="svg"><span class="tooltiptext">Это базовый компонент, отвечающий за смазывающие свойства</span><svg class="icon">
               <use xlink:href="#question"></use>
             </svg></span></p><span>{{$data['page']->base}}</span>
-          </div>
+          </div>    
+          @endif
+          
           <div class="product__text-stat-item">
-            <p>Вязкость  <span class="svg"><span class="tooltiptext">Тип применяемости масла - для чего предназначено масло: 
-              для двигателя или трансмиссии</span><svg class="icon">
+            <p>Вязкость  <span class="svg"><span class="tooltiptext">Это мера его сопротивления течению</span><svg class="icon">
               <use xlink:href="#question"></use>
             </svg></span></p><span>{{$data['page']->viscosity->value}}</span>
           </div>
           <div class="product__text-stat-item">
-            <p>Объем (литры)</p><span>{{$data['page']->volume->value}} л</span>
+            <p>Объем (литры)</p><span>{{$data['page']->volume->value}}</span>
           </div>
 
         </div>

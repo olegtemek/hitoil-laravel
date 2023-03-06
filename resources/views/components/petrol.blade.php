@@ -3,12 +3,9 @@
     <div class="petrol__wrapper">
       <div class="petrol__top">
         <select id="select_type">
-          <option value="0">Бензин автомобильный</option>
-          <option value="1">Дизельное топливо</option>
-          <option value="2">Для реактивных двигателей</option>
-          <option value="3">Мазут топочный</option>
-          <option value="4">Топливо печное бытовое</option>
-          <option value="5">Битум нефтяной дорожный</option>
+         @foreach ($data['bases'] as $item)
+             <option value="{{$item->id}}">{{$item->title}}</option>
+         @endforeach
         </select>
 
         <select id="select_factory">
@@ -27,7 +24,9 @@
 
         <div class="petrol__table-row-inner">
           @foreach ($petrols as $item)
+            @if($item->base_id == $petrols[0]->base_id)
             @include('components.petrol-row', ['item'=>$item])
+            @endif
         @endforeach
         </div>
         

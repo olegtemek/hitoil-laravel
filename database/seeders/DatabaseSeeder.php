@@ -135,7 +135,7 @@ class DatabaseSeeder extends Seeder
         Certificate::factory(5)->create();
         Review::factory(5)->create();
 
-        Petrol::factory(4)->create();
+        // Petrol::factory(4)->create();
 
         Setting::factory(1)->create();
     }

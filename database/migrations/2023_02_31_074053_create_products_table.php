@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug');
             $table->string('price');
-            $table->string('model');
-            $table->string('base');
+            $table->string('model')->nullable();
+            $table->string('base')->nullable();
             $table->longText('images')->nullable();
             $table->foreignId('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreignId('brand_id')->references('id')->on('brands')->onDelete('cascade');

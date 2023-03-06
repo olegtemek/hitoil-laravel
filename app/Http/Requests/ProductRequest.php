@@ -29,8 +29,6 @@ class ProductRequest extends FormRequest
             'viscosity' => 'required',
             'category_id' => 'required',
             'volume' => 'required',
-            'model' => 'required',
-            'base' => 'required',
         ];
     }
 }

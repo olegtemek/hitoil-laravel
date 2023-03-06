@@ -297,8 +297,10 @@ async function sendData(data) {
       factory_title: $('#factory_select option:selected').val().split(' // ')[1],
       city_title: $('#city_select option:selected').val(),
       product_title: $('#product_select option:selected').val(),
-      volume: $('#volume').val()
+      volume: $('#volume_select option:selected').val()
     }
+
+    console.log(dataCost.volume);
   }
   let product = null;
   if (document.querySelector('.product-title')) {

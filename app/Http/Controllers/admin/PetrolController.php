@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PetrolRequest;
+use App\Models\Base;
 use App\Models\Factory;
 use App\Models\Petrol;
 use Illuminate\Http\Request;
@@ -17,6 +18,7 @@ class PetrolController extends Controller
      */
     public function index()
     {
+
         $petrols = Petrol::with('parent')->get();
         return view('admin.petrol.index', compact('petrols'));
     }
@@ -28,8 +30,9 @@ class PetrolController extends Controller
      */
     public function create()
     {
+        $bases = Base::all();
         $factories = Factory::all();
-        return view('admin.petrol.create', compact('factories'));
+        return view('admin.petrol.create', compact('factories', 'bases'));
     }
 
     /**
@@ -46,7 +49,7 @@ class PetrolController extends Controller
             'volume' => $request->volume,
             'factory_id' => $request->factory_id,
             'image' => $request->image,
-            'type' => $request->type,
+            'base_id' => $request->type,
         ]);
         return redirect()->route('admin.petrol.index')->with('message', 'Топливо было успешно добавлено');
     }
@@ -72,8 +75,8 @@ class PetrolController extends Controller
     {
         $petrol = Petrol::find($id);
         $factories = Factory::all();
-
-        return view('admin.petrol.edit', compact('petrol', 'factories'));
+        $bases = Base::all();
+        return view('admin.petrol.edit', compact('petrol', 'factories', 'bases'));
     }
 
     /**
@@ -91,7 +94,7 @@ class PetrolController extends Controller
             'volume' => $request->volume,
             'factory_id' => $request->factory_id,
             'image' => $request->image,
-            'type' => $request->type,
+            'base_id' => $request->type,
         ]);
         return redirect()->route('admin.petrol.index')->with('message', 'Топливо было успешно изменено');
     }

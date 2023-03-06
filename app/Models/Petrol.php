@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Petrol extends Model
 {
     use HasFactory;
-    protected $fillable = ['factory_id', 'title', 'price', 'volume', 'type', 'image'];
+    protected $fillable = ['factory_id', 'title', 'price', 'volume', 'base_id', 'image'];
 
     public function parent()
     {

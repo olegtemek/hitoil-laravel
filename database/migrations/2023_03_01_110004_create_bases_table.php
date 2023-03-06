@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('petrols', function (Blueprint $table) {
+        Schema::create('bases', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('factory_id')->references('id')->on('factories')->onDelete('cascade');
             $table->string('title');
-            $table->string('price');
-            $table->string('volume');
-            $table->string('image');
-            $table->integer('type');
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('petrols');
+        Schema::dropIfExists('bases');
     }
 };

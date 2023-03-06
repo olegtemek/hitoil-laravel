@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\SendMail;
+use App\Models\Base;
 use App\Models\Category;
 use App\Models\Certificate;
 use App\Models\Contact;
@@ -27,7 +28,8 @@ class HomeController extends Controller
 
         $data['factories'] = Factory::all();
 
-        $data['petrols'] = Petrol::where('factory_id', $data['factories'][0]->id)->where('type', false)->get();
+        $data['petrols'] = Petrol::where('factory_id', $data['factories'][0]->id)->get();
+        $data['bases'] = Base::all();
 
         return view('home.index', compact('data'));
     }
@@ -69,7 +71,7 @@ class HomeController extends Controller
 
     public function getOil(Request $req)
     {
-        $petrols = Petrol::where('factory_id', $req->oil['factoryId'])->where('type', $req->oil['type'])->get();
+        $petrols = Petrol::where('factory_id', $req->oil['factoryId'])->where('base_id', $req->oil['type'])->get();
         $html = '';
         foreach ($petrols as $item) {
             $html .= view('components.petrol-row', ['item' => $item]);

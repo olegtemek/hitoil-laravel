@@ -84,12 +84,9 @@
               @enderror
 
               <select name="type" class="form-control">
-                <option value="0">Дизельное топливо</option>
-                <option value="1">Бензин автомобильный</option>
-                <option value="2">Топливо для реактивных двигателей</option>
-                <option value="3">Мазут топочный</option>
-                <option value="4">Топливо печное бытовое</option>
-                <option value="5">Битум нефтяной дорожный</option>
+                @foreach ($bases as $base)
+                    <option value="{{$base->id}}">{{$base->title}}</option>
+                @endforeach
               </select>
             </div>
           </div>

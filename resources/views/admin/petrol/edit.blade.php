@@ -87,24 +87,9 @@
               @enderror
 
               <select name="type" class="form-control">
-                <option @if ($petrol->type == 0)
-                    selected
-                @endif value="0">Дизельное топливо</option>
-                <option @if ($petrol->type == 1)
-                  selected
-              @endif value="1">Бензин автомобильный</option>
-                <option @if ($petrol->type == 2)
-                  selected
-              @endif value="2">Топливо для реактивных двигателей</option>
-                <option @if ($petrol->type == 3)
-                  selected
-              @endif value="3">Мазут топочный</option>
-                <option @if ($petrol->type == 4)
-                  selected
-              @endif value="4">Топливо печное бытовое</option>
-                <option @if ($petrol->type == 5)
-                  selected
-              @endif value="5">Битум нефтяной дорожный</option>
+                @foreach ($bases as $base)
+                    <option @if($base->id == $petrol->base_id) selected @endif value="{{$base->id}}">{{$base->title}}</option>
+                @endforeach
               </select>
             </div>
           </div>

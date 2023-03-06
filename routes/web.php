@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AuthController;
+use App\Http\Controllers\admin\BaseController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\CertificateController;
 use App\Http\Controllers\admin\ContactController;
@@ -54,7 +55,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     Route::put('/filter/{type}/{id}', [FilterController::class, 'update'])->name('filter.update');
     Route::delete('/filter/delete/{type}/{id}', [FilterController::class, 'destroy'])->name('filter.destroy');
     Route::resource('/product', ProductController::class);
-
+    Route::resource('/base', BaseController::class);
     Route::resource('/petrol', PetrolController::class);
 });
 

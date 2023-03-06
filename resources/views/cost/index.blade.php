@@ -36,7 +36,16 @@
 
           <div class="cost__select">
             <p>Выберите объем: </p>
-            <input type="number" placeholder="100 т" id="volume">
+            {{-- <input type="number" placeholder="100 т" id="volume"> --}}
+            <select id="volume_select">
+              <option value="Другое">Другое</option>
+              <option value="65">65 т</option>
+              <option value="130">130 т</option>
+              <option value="195">195 т</option>
+              <option value="260">260 т</option>
+              <option value="325">325 т</option>
+              <option value="400">400 т</option>
+            </select>
           </div>
 
           <div class="cost__select">
@@ -165,6 +174,10 @@
           sortField: 'text',
       });
       $('#product_select').selectize({
+          sortField: 'text',
+      });
+
+      $('#volume_select').selectize({
           sortField: 'text',
       });
 

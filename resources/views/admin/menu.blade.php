@@ -37,12 +37,12 @@
             <p>Настройки</p>
           </a>
         </li>
-        {{-- <li class="nav-item ">
-          <a href="{{route('admin.team.index')}}" class="nav-link {{(request()->is('admin/team*')) ? 'active' : ''}}">
+        <li class="nav-item ">
+          <a href="{{route('admin.base.index')}}" class="nav-link {{(request()->is('admin/base*')) ? 'active' : ''}}">
             <i class="fas fa-cogs nav-icon"></i>
-            <p>Команда</p>
+            <p>Типы в таблице</p>
           </a>
-        </li> --}}
+        </li>
         <li class="nav-item ">
           <a href="{{route('admin.partner.index')}}" class="nav-link {{(request()->is('admin/partner*')) ? 'active' : ''}}">
             <i class="fas fa-cogs nav-icon"></i>
