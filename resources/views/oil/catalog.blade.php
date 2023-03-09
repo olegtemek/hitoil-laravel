@@ -13,11 +13,11 @@
 
     <div class="catalog__wrapper">
 
-     
+      @if($data['filters']['brands']->count() >= 1 && $data['filters']['types']->count() >= 1 && $data['filters']['volumes']->count() >= 1 && $data['filters']['viscosities']->count() >= 1)
       <div class="catalog__left">
         <h4>Фильтр</h4>
         <span class="cross">&#9587;</span>
-
+        @if($data['filters']['types']->count() >= 1)
         <div class="catalog__left-list">
           <div class="catalog__left-list-top">
             <h5>ТИПЫ</h5>
@@ -39,7 +39,9 @@
             @endforeach
           </div>
         </div>
+        @endif
 
+        @if($data['filters']['brands']->count() >= 1)
         <div class="catalog__left-list">
           <div class="catalog__left-list-top">
             <h5>Бренды</h5>
@@ -60,7 +62,9 @@
             @endforeach
           </div>
         </div>
+        @endif
 
+        @if($data['filters']['viscosities']->count() >= 1)
         <div class="catalog__left-list">
           <div class="catalog__left-list-top">
             <h5>Вязкость</h5>
@@ -81,7 +85,8 @@
             @endforeach
           </div>
         </div>
-
+        @endif
+        @if($data['filters']['volumes']->count() >= 1)
         <div class="catalog__left-list">
           <div class="catalog__left-list-top">
             <h5>Объем</h5>
@@ -104,12 +109,12 @@
             @endforeach
           </div>
         </div>
-
+        @endif
 
         <button class="b-btn filtered">Применить</button>
         <span class="filter-clear">Очистить все</span>
-
       </div>
+      @endif
 
       <div class="catalog__right">
 
